@@ -1,0 +1,67 @@
+.display-inline-block {
+  display: inline-block;
+}
+.full-width {
+  width: 100%;
+}
+.login-circle {
+  border-radius: 100%;
+  background-color: #549431;
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  -webkit-transform: translateY(-50px);
+      -ms-transform: translateY(-50px);
+          transform: translateY(-50px);
+}
+.login-container {
+  height: 400px;
+  width: 400px;
+  border-radius: 3%;
+  background-color: #ffffff;
+  box-shadow: 0px 2px #404040;
+}
+.login-form-title {
+  font-weight: 700;
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+.login-form-margin-fix {
+  margin-top: -160px;
+}
+.login-person-image {
+  color: #ffffff;
+  font-size: 70px;
+}
+.fullscreen {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+.common-backgorund-accent-color {
+  background-color: #549431;
+  color: #ffffff;
+}
+.btn.btn-default.common-backgorund-accent-color:hover {
+  background-color: #49812b;
+}
+.vertical-align-middle {
+  vertical-align: middle;
+}
+.vertical-center-father {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+.vertical-center-son {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+/*Mixins*/
+.gradient-2 {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+/*# sourceMappingURL=syles.css.map */
