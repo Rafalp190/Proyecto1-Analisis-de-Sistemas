@@ -154,7 +154,7 @@ class Employee(Document):
 andres = Employee(name="Andres Oliva", age=21)
 andres.save()
 
-pablo = Employee(name="Pablo Ariola", age="??")
+pablo = Employee(name="Pablo Ariola", age=24)
 pablo.save()
 
 for e in Employee.objects.all():
