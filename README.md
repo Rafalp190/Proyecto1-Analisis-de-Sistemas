@@ -44,11 +44,13 @@ Descargar el Repositorio
 
 3. Escribir los siguientes comandos:
 
-	$python manage.py migrate
-	$python manage.py createsuperuser
-	Coloque el usuario y contraseña que desea utilizar
-	$python manage.py runserver
+	$ python manage.py migrate
+	$ python manage.py createsuperuser
+	$ python manage.py runserver
 	
+-nota para correr el servidor de nuevo solamente es necesario
+
+	$ python manage.py runserver
 4. Dirigirse a su buscador preferido de internet
 	Dirigirse a su URL local:
 	
