@@ -7,10 +7,13 @@
     <head>
         <title>Test</title>
     </head>
-
     <body>
         <h1>Index Placeholder</h1>
-        <a href="/">Log In 4</a><br />
+		<li>
+            <form method="get" action="{% url 'logout' %}">{% csrf_token %}
+                <input type="submit" value="Cerrar sesion" class="button fit">
+            </form>
+         </li>
         <img src="{% static 'images/underconstruction.jpg' %}" alt="Under Construction" /> <!-- New line -->
     </body>
 
