@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+    <link rel="stylesheet" href="statics 'statics/css/bootstrap.css'">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="statics 'statics/css/syles.css'">
+</head>
+<body>
+<div class="container fullscreen text-center" style="/*border: 2px solid red;*/ ">
+
+            <div class="row" style="height: 100%;">
+                <div class="vertical-center-father">
+                    <div class="vertical-center-son vertical-align-middle">
+                        <div class="login-container display-inline-block" style="/*border: 2px solid blue;*/">
+                            <div class="login-circle">
+                               <div class="vertical-center-father">
+                                   <div class="vertical-center-son vertical-align-middle">
+                                       <i class="material-icons login-person-image">person</i>
+                                   </div>
+                               </div>
+                            </div>
+                            <div class="vertical-center-father">
+                                <div class="vertical-center-son vertical-align-middle">
+                                    {% block content %}
+                                    <form class="form-horizontal login-form-margin-fix" role="form"  method="post" action=".">{% csrf_token %}>
+                                        <div class="form-group login-form-title">
+                                           {% if error %}
+                                            <span>{{ error }}</span>
+                                            {% else %}
+                                            <span>Login</span>
+                                            {% endif %}
+                                        </div>
+                                        <div class="form-group">
+                                            <!--<label class="control-label col-sm-2" for="email">Email:</label>-->
+                                            <div class="col-sm-10 col-sm-offset-1">
+                                                <input type="text" class="form-control" id="email" placeholder="USERNAME">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <!--<label class="control-label col-sm-3" for="pwd">Password:</label>-->
+                                            <div class="col-sm-10 col-sm-offset-1">
+                                                <input type="password" class="form-control" id="pwd" placeholder="PASSWORD">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="col-sm-10 col-sm-offset-1">
+                                                <button type="submit" class="btn btn-default full-width common-backgorund-accent-color">LOGIN</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <a href="#"> Olvide mi contraseña</a>
+                                        </div>
+                                    </form>
+                                    {% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+</div>
+<script type="text/javascript" src="statics 'statics/js/jquery-3.1.0.min.js'"></script>
+<script type="text/javascript" src="statics 'statics/js/bootstrap.min.js'"></script>
+</body>
+</html>
