@@ -120,8 +120,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-
 databaseName = "sample_database"
 connection = Connection()
 
@@ -146,19 +144,6 @@ for e in employees.find():
     print e["name"] + " " + unicode(e["languages"])
 
 connect('employeeDB')
-
-class Employee(Document):
-    name = StringField(max_length=50)
-    age = IntField(required=False)
-
-andres = Employee(name="Andres Oliva", age=21)
-andres.save()
-
-pablo = Employee(name="Pablo Ariola", age=24)
-pablo.save()
-
-for e in Employee.objects.all():
-    print e["id"], e["name"], e["age"]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
