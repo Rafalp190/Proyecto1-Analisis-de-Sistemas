@@ -6,7 +6,7 @@ from django.db import models
 
 #idproducto, cantidad de producto
 class Inventario (models.Model):
-    id = models.BigIntegerField(primary_key=True)
+    idProducto = models.BigIntegerField(primary_key=True)
     content = models.CharField(max_length=255, blank=True)
     date = models.BigIntegerField(blank=True, null=True)
     recipients = models.CharField(max_length=255, blank=True)
@@ -19,7 +19,7 @@ class Inventario (models.Model):
 
 #idproducto, id platillo, cantidad utilizada, idingrediente
 class Ingredientes (models.Model):
-    id = models.BigIntegerField(primary_key=True)
+    idProducto = models.BigIntegerField(primary_key=True)
     content = models.CharField(max_length=255, blank=True)
     date = models.BigIntegerField(blank=True, null=True)
     recipients = models.CharField(max_length=255, blank=True)
@@ -33,7 +33,7 @@ class Ingredientes (models.Model):
 
 #cliente, nit, id platillo, id mesero
 class Orden (models.Model):
-    id = models.BigIntegerField(primary_key=True)
+    idPlatillo = models.BigIntegerField(primary_key=True)
     content = models.CharField(max_length=255, blank=True)
     date = models.BigIntegerField(blank=True, null=True)
     recipients = models.CharField(max_length=255, blank=True)
