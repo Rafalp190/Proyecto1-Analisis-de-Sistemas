@@ -15,7 +15,7 @@ class Inventario (models.Model):
     sender = models.ForeignKey('Emailaccount', blank=True, null=True)
     class Meta:
         managed = True
-        db_table = 'email'
+        db_table = 'invetario'
 
 #idproducto, id platillo, cantidad utilizada, idingrediente
 class Ingredientes (models.Model):
@@ -29,7 +29,7 @@ class Ingredientes (models.Model):
 
     class Meta:
         managed = True
-        db_table = 'email'
+        db_table = 'ingredientes'
 
 #cliente, nit, id platillo, id mesero
 class Orden (models.Model):
@@ -43,4 +43,4 @@ class Orden (models.Model):
 
     class Meta:
         managed = True
-        db_table = 'email'
+        db_table = 'orden'
