@@ -1,5 +1,6 @@
 <!DOCTYPE html>
  {% load staticfiles %}
+ {% csrf_token %}
 <html lang="en">
 <head>
 
@@ -60,7 +61,7 @@
 
         <ul class="square">
              <li class="user-features">
-                <a href="{% url 'logout' %}"><i class="fa fa-fw fa-user"></i> Logout</a>
+                <a href="{% url 'logout' %}"><i class="fa fa-fw fa-user"></i> Logout</a>{% csrf_token %}
             </li>
         </ul>
     </nav>
