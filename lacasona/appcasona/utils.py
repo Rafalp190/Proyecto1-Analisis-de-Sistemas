@@ -4,7 +4,7 @@ from django_tables2.config import RequestConfig
 class PagedFilteredTableView(SingleTableView):
     filter_class = None
     formhelper_class = None
-    context_filter_recipientmsisdn = 'filter'
+    context_filter_idProducto = 'filter'
 
     def get_queryset(self, **kwargs):
         qs = super(PagedFilteredTableView, self).get_queryset()
@@ -14,5 +14,5 @@ class PagedFilteredTableView(SingleTableView):
 
     def get_context_data(self, **kwargs):
         context = super(PagedFilteredTableView, self).get_context_data()
-        context[self.context_filter_recipientmsisdn] = self.filter
+        context[self.context_filter_idProducto] = self.filter
         return context

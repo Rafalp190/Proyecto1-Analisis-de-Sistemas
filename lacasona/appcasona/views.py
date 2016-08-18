@@ -13,6 +13,9 @@ from django.db.models import Q
 from django.http import HttpResponse
 from .models import Inventario,Ordenes,Ingredientes
 from .tables import IngredientesTable,InventarioTable,OrdenesTable
+from .filters import InventarioFilter
+from .forms import InventarioFormHelper
+from utils import PagedFilteredTableView
 
 import random
 import datetime
@@ -56,16 +59,11 @@ def log_out(request):
 def index(request):
     return render(request, 'appcasona/index.html')
 
-def inventory(request):
-    table = InventarioTable(Inventario.objects.all())
-    RequestConfig(request).configure(table)
-    return render(request, 'appcasona/inventory.html', {'table': table})
+class Inventory(PagedFilteredTableView):
+    model = Inventario
+    filer_class = InventarioFilter
+    formhelper_class=InventarioFormHelper
+    table_class = InventarioTable
+    
 
-def buscar(request):
-    if request.method == 'POST':
-        print "hello world"
-    return redirect("inventory")
-def platilloBuscar(request):
-    if request.method == 'POST':
-        print "hello world"
-    return redirect("inventory")
+
