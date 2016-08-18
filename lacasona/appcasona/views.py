@@ -48,3 +48,6 @@ def log_out(request):
     return redirect('login')
 def index(request):
     return render(request, 'appcasona/index.html')
+
+def inventario(request):
+    return render(request, 'appcasona/index.html')
