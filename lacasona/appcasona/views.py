@@ -21,7 +21,7 @@ import time
 def log_in(request):
     #Maneja los errores 
     def errorHandle(error):
-        return render(request, 'appcasona/login.html', {'error' : error,}) 
+        return render(request, 'appcasona/login_template.html', {'error' : error,}) 
     #Si el usuario no ha iniciado sesion.
     if not request.user.is_authenticated():
         #Si ya se ha dado ingresado una cuenta
