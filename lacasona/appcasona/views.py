@@ -9,7 +9,14 @@ from django_tables2 import RequestConfig
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_http_methods
 from django.db.models import Q
+
 from django.http import HttpResponse
+from .models import Inventario,Ordenes,Ingredientes
+from .tables import IngredientesTable,InventarioTable,OrdenesTable
+
+import random
+import datetime
+import time
 # Create your views here.
 def log_in(request):
     #Maneja los errores 
@@ -50,7 +57,9 @@ def index(request):
     return render(request, 'appcasona/index.html')
 
 def inventario(request):
-    return render(request, 'appcasona/index.html')
+    table = InventarioTable(Inventario.objects.all())
+    RequestConfig(request).configure(table)
+    return render(request, 'appcasona/inventory.html', {'table': table})
 
 def buscar(request):
     if request.method == 'POST':

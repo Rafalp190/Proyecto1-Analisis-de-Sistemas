@@ -14,7 +14,7 @@ class Inventario (models.Model):
      
     class Meta:
         managed = True
-        db_table = 'invetario'
+        db_table = 'inventario'
  
 #idproducto, id platillo, cantidad utilizada, idingrediente
 class Ingredientes (models.Model):
@@ -36,4 +36,5 @@ class Ordenes (models.Model):
    idMesero= models.BigIntegerField (db_column='idMesero',blank=True,verbose_name='Id Mesero')
    class Meta:
         managed = True
-#         db_table = 'orden'
+        db_table = 'orden'
+        
