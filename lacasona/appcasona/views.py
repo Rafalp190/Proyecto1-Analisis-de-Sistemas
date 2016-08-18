@@ -51,3 +51,12 @@ def index(request):
 
 def inventario(request):
     return render(request, 'appcasona/index.html')
+
+def buscar(request):
+    if request.method == 'POST':
+        print "hello world"
+    return redirect("inventory")
+def platilloBuscar(request):
+    if request.method == 'POST':
+        print "hello world"
+    return redirect("inventory")
