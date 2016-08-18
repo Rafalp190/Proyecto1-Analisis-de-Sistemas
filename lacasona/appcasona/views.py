@@ -44,7 +44,7 @@ def log_in(request):
                     return errorHandle(error)
             else:
                 #Retorna un mensaje de error de 'invalid login'
-                error = u'Su usuario o contrasena no son correctos. Por favor intentelo de nuevo.'
+                error = u'Usuario o contrasena no son correctos. Intentelo de nuevo.'
                 return errorHandle(error)
         else:
             return render(request, 'appcasona/login_template.html')
