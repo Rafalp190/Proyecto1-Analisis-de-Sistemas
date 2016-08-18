@@ -1,46 +1,23 @@
-from __future__ import unicode_literals
+import django_tables2 as dt2
+import itertools
+from datetime import datetime
+from .models import Message
+from django import forms
+from django.utils.html import escape
 
-from django.db import models
-
-# Create your models here.'
-
-# #idproducto, cantidad de producto
-# class Inventario (models.Model):
-#     idProducto = models.BigIntegerField(primary_key=True)
-#     content = models.CharField(max_length=255, blank=True)
-#     date = models.BigIntegerField(blank=True, null=True)
-#     recipients = models.CharField(max_length=255, blank=True)
-#     status = models.IntegerField(blank=True, null=True)
-#     subject = models.CharField(max_length=255, blank=True)
-#     sender = models.ForeignKey('Emailaccount', blank=True, null=True)
-#     class Meta:
-#         managed = True
-#         db_table = 'invetario'
-# 
-# #idproducto, id platillo, cantidad utilizada, idingrediente
-# class Ingredientes (models.Model):
-#     idProducto = models.BigIntegerField(primary_key=True)
-#     content = models.CharField(max_length=255, blank=True)
-#     date = models.BigIntegerField(blank=True, null=True)
-#     recipients = models.CharField(max_length=255, blank=True)
-#     status = models.IntegerField(blank=True, null=True)
-#     subject = models.CharField(max_length=255, blank=True)
-#     sender = models.ForeignKey('Emailaccount', blank=True, null=True)
-# 
-#     class Meta:
-#         managed = True
-#         db_table = 'ingredientes'
-# 
-# #cliente, nit, id platillo, id mesero
-# class Orden (models.Model):
-#     idPlatillo = models.BigIntegerField(primary_key=True)
-#     content = models.CharField(max_length=255, blank=True)
-#     date = models.BigIntegerField(blank=True, null=True)
-#     recipients = models.CharField(max_length=255, blank=True)
-#     status = models.IntegerField(blank=True, null=True)
-#     subject = models.CharField(max_length=255, blank=True)
-#     sender = models.ForeignKey('Emailaccount', blank=True, null=True)
-# 
-#     class Meta:
-#         managed = True
-#         db_table = 'orden'
+class Ingredientes (dt2.Table):
+    idPlatillo = dt2.Column(accessor='id')
+    idProducto = dt2.Column(accessor='idProducto')
+    cantidadUtilizada = dt2.Column(accessor='cantidadUtilizada')
+    idIngrediente = dt2.Column(accessor='idIngrediente')
+    
+class Inventario (dt2.Table):
+    idProducto = dt2.Column(accessor='id')
+    cantidadDeProducto = dt2.Column(accessor='cantidadDeProducto')
+    nombreDelProducto = dt2.Column(accessor='nombreDelProducto')
+    
+class Ordenes (dt2.Table):
+   cliente = dt2.Column(accessor='id')
+   nit = dt2.Column(accessor= 'nit')
+   idPlatillo = dt2.Column(accessor='idPlatillo')
+   idMesero= dt2.Column(accessor='idMesero')
