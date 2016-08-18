@@ -330,6 +330,7 @@ body a:hover {
 .cantidadDeProducto,
 .nombreDelProducto {
   border: 1px solid black;
+  width: 33%;
 }
 .idProducto.orderable a {
   text-decoration: none;
@@ -339,4 +340,7 @@ body a:hover {
 }
 .nombreDelProducto.orderable a {
   text-decoration: none;
+}
+.table-container > table {
+  width: 100%;
 }
