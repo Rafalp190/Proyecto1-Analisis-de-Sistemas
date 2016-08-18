@@ -150,13 +150,19 @@ html {
 .sidebar-nav li.open a:active,
 .sidebar-nav li.open a:focus {
   background-color: transparent;
-  color: #ffffff;
+  color: #000;
   text-decoration: none;
 }
 .sidebar-nav > .sidebar-brand {
   font-size: 20px;
   height: 65px;
   line-height: 44px;
+}
+.navbar-no-effect:hover,
+.navbar-no-effect:active,
+.navbar-no-effect:focus,
+.navbar-no-effect a {
+  color: #fff !important;
 }
 /*-------------------------------*/
 /*       Hamburger-Cross         */
@@ -315,5 +321,22 @@ body a:hover {
   position: absolute;
 }
 .user-features a {
+  text-decoration: none;
+}
+/*-------------------------------*/
+/*       Tablas                  */
+/*-------------------------------*/
+.idProducto,
+.cantidadDeProducto,
+.nombreDelProducto {
+  border: 1px solid black;
+}
+.idProducto.orderable a {
+  text-decoration: none;
+}
+.cantidadDeProducto.orderable a {
+  text-decoration: none;
+}
+.nombreDelProducto.orderable a {
   text-decoration: none;
 }

@@ -21,8 +21,8 @@
     <!-- Sidebar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
         <ul class="nav sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
+            <li class="sidebar-brand navbar-no-effect">
+                <a href="{% url 'index' %}">
                    <span class="text-uppercase">La casona</span>
                 </a>
             </li>
@@ -32,17 +32,17 @@
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-folder"></i> Inventario <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    
-                    <li class="dropdown-header">Inventario</li>
+
+                    <li class="dropdown-header" style="color: white; font-style: italic; text-align: center">Inventario</li>
                     <li><a href="{% url 'inventory' %}">Inventario General</a> {% csrf_token %}</li>
                     <li><a href="{% url 'inventory' %}">Platillos</a> {% csrf_token %}</li>
                     <li><a href="{% url 'inventory' %}">Ordenes</a> {% csrf_token %}</li>
 
                 </ul>
             </li>
-            <li>
-                <a href="{% url 'inventory' %}"><i class="fa fa-fw fa-folder"></i> Inventario</a> {% csrf_token %}
-            </li>
+            <!--<li>-->
+                <!--<a href="{% url 'inventory' %}"><i class="fa fa-fw fa-folder"></i> Inventario</a> {% csrf_token %}-->
+            <!--</li>-->
             <li>
                 <a href="#"><i class="fa fa-fw fa-file-o"></i> Caja</a>
             </li>

@@ -40,7 +40,6 @@
                     <li><a href="{% url 'inventory' %}">Inventario General</a> {% csrf_token %}</li>
                     <li><a href="{% url 'inventory' %}">Platillos</a> {% csrf_token %}</li>
                     <li><a href="{% url 'inventory' %}">Ordenes</a> {% csrf_token %}</li>
-
                 </ul>
             </li>
             <li>
@@ -79,7 +78,39 @@
         <span class="hamb-middle"></span>
         <span class="hamb-bottom"></span>
       </button>
-        <div class="container">
+        <div class="container" style="">
+            <div class="row" style="">
+                <div class="">
+                <form class="navbar-form" role="search">
+					<div class="input-group">
+						<input type="text" class="form-control pull-right" style="width: 300px; margin-right: 35px; border: 1px solid black; background-color: #e5e5e5;" placeholder="Search">
+						<span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">
+								<span class="glyphicon glyphicon-search">
+									<span class="sr-only">Search</span>
+								</span>
+							</button>
+                            <button type="reset" class="btn btn-default">
+								<span class="glyphicon glyphicon-chevron-up">
+									<span class="">Update</span>
+								</span>
+							</button>
+                            <button type="reset" class="btn btn-default">
+								<span class="glyphicon glyphicon-chevron-down">
+									<span class="">Replace</span>
+								</span>
+							</button>
+                            <button type="reset" class="btn btn-default">
+								<span class="glyphicon glyphicon-remove">
+									<span class="">Delete</span>
+								</span>
+							</button>
+
+						</span>
+					</div>
+				</form>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                 	{% render_table table %}
@@ -91,7 +122,8 @@
 
 </div>
     <!-- /#wrapper -->
-<script src="{%static 'js/jquery-3.1.0.min.js'%}"></script>
+<script src="{%static 'js/jquery-2.2.4.min.js'%}"></script>
+<script src="{%static 'js/bootstrap.min.js'%}"></script>
 <script src="{%static 'js/index2.js'%}"></script>
 </body>
 </html>
