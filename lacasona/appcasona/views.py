@@ -56,7 +56,7 @@ def log_out(request):
 def index(request):
     return render(request, 'appcasona/index.html')
 
-def inventario(request):
+def inventory(request):
     table = InventarioTable(Inventario.objects.all())
     RequestConfig(request).configure(table)
     return render(request, 'appcasona/inventory.html', {'table': table})

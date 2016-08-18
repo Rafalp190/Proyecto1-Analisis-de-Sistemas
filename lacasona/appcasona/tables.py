@@ -6,14 +6,13 @@ from django import forms
 from django.utils.html import escape
 
 class IngredientesTable (dt2.Table):
-    idPlatillo = dt2.Column(accessor='id')
+    idPlatillo = dt2.Column(accessor='idPlatillo')
     idProducto = dt2.Column(accessor='idProducto')
     cantidadUtilizada = dt2.Column(accessor='cantidadUtilizada')
     idIngrediente = dt2.Column(accessor='idIngrediente')
     
 class InventarioTable (dt2.Table):
-    model = Inventario
-    idProducto = dt2.Column(accessor='id')
+    idProducto = dt2.Column(accessor='idProducto')
     cantidadDeProducto = dt2.Column(accessor='cantidadDeProducto')
     nombreDelProducto = dt2.Column(accessor='nombreDelProducto')
     
