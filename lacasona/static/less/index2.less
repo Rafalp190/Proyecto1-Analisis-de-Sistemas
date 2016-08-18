@@ -247,7 +247,7 @@ html {
 }
 .sidebar-nav li a:hover, .sidebar-nav li a:active, .sidebar-nav li a:focus, .sidebar-nav li.open a:hover, .sidebar-nav li.open a:active, .sidebar-nav li.open a:focus {
   background-color: transparent;
-  color: #ffffff;
+  color: #000;
   text-decoration: none;
 }
 .sidebar-nav>.sidebar-brand {
@@ -256,29 +256,14 @@ html {
   line-height: 44px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.navbar-no-effect{
+  &:hover,
+  &:active,
+  &:focus,
+  & a{
+    color: #fff !important;
+  }
+}
 
 
 
@@ -455,4 +440,23 @@ body, html {background-color: @bg-color} body {h1,h2,h3,h4 {color:fadeout(@text-
   & a{
    text-decoration: none;
   }
+}
+
+/*-------------------------------*/
+/*       Tablas                  */
+/*-------------------------------*/
+.idProducto, .cantidadDeProducto, .nombreDelProducto {
+  border: 1px solid black;
+}
+
+.idProducto.orderable a{
+  text-decoration: none;
+}
+
+.cantidadDeProducto.orderable a{
+  text-decoration: none;
+}
+
+.nombreDelProducto.orderable a{
+  text-decoration: none;
 }
