@@ -9,8 +9,8 @@ from django import forms
 #idproducto, cantidad de producto, nombre del producto 
 class Inventario (models.Model):
     idProducto = models.BigIntegerField(primary_key=True,verbose_name='ID')
-    cantidadDeProducto = models.BigIntegerField(db_column='cantidadDeProducto',blank=True,verbose_name='\tCantidad\t')
-    nombreDelProducto = models.CharField(max_length=255, blank=True,verbose_name='\tNombre\t',db_column='nombreDelProducto')
+    cantidadDeProducto = models.BigIntegerField(db_column='cantidadDeProducto',blank=True,verbose_name='Cantidad')
+    nombreDelProducto = models.CharField(max_length=255, blank=True,verbose_name='Nombre',db_column='nombreDelProducto')
      
     class Meta:
         managed = True
