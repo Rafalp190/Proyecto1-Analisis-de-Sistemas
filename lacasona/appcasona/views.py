@@ -12,10 +12,10 @@ from django.db.models import Q
 from django_tables2 import SingleTableView
 
 from django.http import HttpResponse
-from .models import Inventario,Ordenes,Ingredientes
+from .models import Inventario,Orders,Ingredientes
 from .tables import IngredientesTable,InventarioTable,OrdenesTable
-from .filters import InventarioFilter
-from .forms import InventarioFormHelper
+from .filters import InventarioFilter, IngredientesFilter, OrdenesFilter
+from .forms import InventarioFormHelper, IngredientesFormHelper, OrdenesFormHelper
 from utils import PagedFilteredTableView
 
 import random
@@ -67,5 +67,16 @@ class Inventory(PagedFilteredTableView):
     formhelper_class=InventarioFormHelper
     table_class = InventarioTable
     
+class Ingredients(PagedFilteredTableView):
+    model = Ingredientes
+    template_name = 'appcasona/ingredients.html'
+    filter_class = IngredientesFilter
+    formhelper_class=IngredientesFormHelper
+    table_class = IngredientesTable
 
-
+class Orders(PagedFilteredTableView):
+    model = Orders
+    template_name = 'appcasona/orders.html'
+    filter_class = OrdenesFilter
+    formhelper_class=OrdenesFormHelper
+    table_class = OrdenesTable

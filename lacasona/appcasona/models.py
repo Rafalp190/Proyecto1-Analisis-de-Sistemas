@@ -18,23 +18,25 @@ class Inventario (models.Model):
  
 #idproducto, id platillo, cantidad utilizada, idingrediente
 class Ingredientes (models.Model):
-    idPlatillo = models.BigIntegerField(primary_key=True,verbose_name='Id Platillo')
+    idIngrediente = models.BigIntegerField(primary_key=True,verbose_name='ID')
+    nombreDelProducto = models.CharField(max_length=255, blank=True,verbose_name='Nombre',db_column='nombreDelProducto')
+    idPlatillo = models.BigIntegerField(db_column='idPlatillo',verbose_name='Id Platillo')
     idProducto = models.BigIntegerField(db_column='idProducto',blank=True,verbose_name='Id Producto')
     cantidadUtilizada = models.BigIntegerField(db_column='cantidadUtilizada',blank=True,verbose_name='Cantidad')
-    idIngrediente = models.BigIntegerField(db_column='idIngrediente',blank=True,verbose_name='Id Ingrediente')
      
  
     class Meta:
         managed = True
-        db_table = 'ingredientes'
+        db_table = 'ingrediente'
  
 #cliente, nit, id platillo, id mesero
-class Ordenes (models.Model):
-   cliente = models.CharField(max_length=255, primary_key=True, verbose_name = 'Cliente')
-   nit = models.BigIntegerField (db_column = 'nit',blank = True, verbose_name= 'Nit')
-   idPlatillo = models.BigIntegerField(db_column='idPlatillo',blank=True,verbose_name='Id Platillo')
-   idMesero= models.BigIntegerField (db_column='idMesero',blank=True,verbose_name='Id Mesero')
-   class Meta:
+class Orders (models.Model):
+    cliente = models.CharField(max_length=255, db_column = 'cliente', verbose_name = 'Cliente')
+    nit = models.BigIntegerField (db_column = 'nit',blank = True, verbose_name= 'Nit')
+    factura = models.BigIntegerField (primary_key=True, blank = True, verbose_name= 'Factura')
+    idPlatillo = models.BigIntegerField(db_column='idPlatillo',blank=True,verbose_name='Id Platillo')
+    idMesero= models.BigIntegerField (db_column='idMesero',blank=True,verbose_name='Id Mesero')
+    class Meta:
         managed = True
-        db_table = 'orden'
+        db_table = 'ordenes'
         
