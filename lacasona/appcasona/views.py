@@ -9,6 +9,7 @@ from django_tables2 import RequestConfig
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_http_methods
 from django.db.models import Q
+from django_tables2 import SingleTableView
 
 from django.http import HttpResponse
 from .models import Inventario,Ordenes,Ingredientes
@@ -61,7 +62,8 @@ def index(request):
 
 class Inventory(PagedFilteredTableView):
     model = Inventario
-    filer_class = InventarioFilter
+    template_name = 'appcasona/inventory.html'
+    filter_class = InventarioFilter
     formhelper_class=InventarioFormHelper
     table_class = InventarioTable
     

@@ -15,7 +15,10 @@ class InventarioTable (dt2.Table):
     idProducto = dt2.Column(accessor='idProducto')
     cantidadDeProducto = dt2.Column(accessor='cantidadDeProducto')
     nombreDelProducto = dt2.Column(accessor='nombreDelProducto')
-    
+    def __init__(self, *args, **kwargs):
+        super(InventarioTable, self).__init__(*args, **kwargs)
+        self.counter = itertools.count()
+
 class OrdenesTable (dt2.Table):
    cliente = dt2.Column(accessor='id')
    nit = dt2.Column(accessor= 'nit')
