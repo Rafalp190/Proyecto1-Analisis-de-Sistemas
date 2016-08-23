@@ -119,5 +119,7 @@ share/
 
 pip-selfcheck.json
 
+# Compilaciones de python
+.pyc
 
 
