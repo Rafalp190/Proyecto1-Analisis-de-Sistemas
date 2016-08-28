@@ -67,16 +67,16 @@ class Inventory(PagedFilteredTableView):
     formhelper_class=InventarioFormHelper
     table_class = InventarioTable
 
-class Proveedores(PagedFilteredTableView):
+class Proveedor(PagedFilteredTableView):
     model = Proveedor
-    template_name = 'appcasona/proveedores.html'
+    template_name = 'appcasona/proveedor.html'
     filter_class = ProveedorFilter
     formhelper_class=ProveedorFormHelper
     table_class = ProveedorTable
 
-class Platillos(PagedFilteredTableView):
+class Platillo(PagedFilteredTableView):
     model = Platillo
-    template_name = 'appcasona/platillos.html'
+    template_name = 'appcasona/platillo.html'
     filter_class = PlatilloFilter
     formhelper_class = PlatilloFormHelper
     table_class = PlatilloTable
