@@ -12,10 +12,10 @@ from django.db.models import Q
 from django_tables2 import SingleTableView
 
 from django.http import HttpResponse
-from .models import Inventario,Orders,Ingredientes
-from .tables import IngredientesTable,InventarioTable,OrdenesTable
-from .filters import InventarioFilter, IngredientesFilter, OrdenesFilter
-from .forms import InventarioFormHelper, IngredientesFormHelper, OrdenesFormHelper
+from .models import Inventario,Proveedor,Platillo
+from .tables import InventarioTable,ProveedorTable,PlatilloTable
+from .filters import InventarioFilter, ProveedorFilter, PlatilloFilter
+from .forms import InventarioFormHelper, ProveedorFormHelper, PlatilloFormHelper
 from utils import PagedFilteredTableView
 
 import random
@@ -23,9 +23,9 @@ import datetime
 import time
 # Create your views here.
 def log_in(request):
-    #Maneja los errores 
+    #Maneja los errores
     def errorHandle(error):
-        return render(request, 'appcasona/login_template.html', {'error' : error,}) 
+        return render(request, 'appcasona/login_template.html', {'error' : error,})
     #Si el usuario no ha iniciado sesion.
     if not request.user.is_authenticated():
         #Si ya se ha dado ingresado una cuenta
@@ -53,7 +53,7 @@ def log_in(request):
 
 #REMOVE WHEN LOGIN TEMPLATE IS COMPLETE
 #    return render(request, 'appcasona/login_template.html')
-    
+
 def log_out(request):
     logout(request)
     return redirect('login')
@@ -66,17 +66,17 @@ class Inventory(PagedFilteredTableView):
     filter_class = InventarioFilter
     formhelper_class=InventarioFormHelper
     table_class = InventarioTable
-    
-class Ingredients(PagedFilteredTableView):
-    model = Ingredientes
-    template_name = 'appcasona/ingredients.html'
-    filter_class = IngredientesFilter
-    formhelper_class=IngredientesFormHelper
-    table_class = IngredientesTable
 
-class Orders(PagedFilteredTableView):
-    model = Orders
-    template_name = 'appcasona/orders.html'
-    filter_class = OrdenesFilter
-    formhelper_class=OrdenesFormHelper
-    table_class = OrdenesTable
+class Proveedores(PagedFilteredTableView):
+    model = Proveedor
+    template_name = 'appcasona/roveedor.html'
+    filter_class = ProveedorFilter
+    formhelper_class=ProveedorFormHelper
+    table_class = ProveedorTable
+
+class Platillos(PagedFilteredTableView):
+    model = Platillo
+    template_name = 'appcasona/platillo.html'
+    filter_class = PlatilloFilter
+    formhelper_class = PlatilloFormHelper
+    table_class = PlatilloTable

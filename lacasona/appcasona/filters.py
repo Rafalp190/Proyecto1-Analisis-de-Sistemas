@@ -1,5 +1,5 @@
 import django_filters as df
-from .models import Inventario, Ingredientes,Orders
+from .models import Inventario, Proveedor,Platillo
 
 class InventarioFilter(df.FilterSet):
     class Meta:
@@ -7,12 +7,12 @@ class InventarioFilter(df.FilterSet):
         fields = ['idProducto', 'nombreDelProducto']
         
         
-class IngredientesFilter(df.FilterSet):
+class ProveedorFilter(df.FilterSet):
     class Meta:
-        model = Ingredientes
+        model = Proveedor
         fields = ['idIngrediente', 'nombreDelProducto']
 
-class OrdenesFilter(df.FilterSet):
+class PlatilloFilter(df.FilterSet):
     class Meta:
-        model = Orders
+        model = Platillo
         fields = ['factura', 'cliente', 'nit']
