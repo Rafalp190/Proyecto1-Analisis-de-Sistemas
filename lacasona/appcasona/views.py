@@ -12,8 +12,8 @@ from django.db.models import Q
 from django_tables2 import SingleTableView
 
 from django.http import HttpResponse
-from .models import Inventario,Proveedor,Platillo
-from .tables import InventarioTable,ProveedorTable,PlatilloTable
+from .models import Inventario, Proveedor, Platillo
+from .tables import InventarioTable, ProveedorTable, PlatilloTable
 from .filters import InventarioFilter, ProveedorFilter, PlatilloFilter
 from .forms import InventarioFormHelper, ProveedorFormHelper, PlatilloFormHelper
 from utils import PagedFilteredTableView
@@ -80,3 +80,15 @@ class Platillo(PagedFilteredTableView):
     filter_class = PlatilloFilter
     formhelper_class = PlatilloFormHelper
     table_class = PlatilloTable
+
+def search_form(request):
+    return render(request, 'appcasona/search_form.html')
+
+def search(request):
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        inventario = Inventario.objects.filter(nombreDelProducto__icontains=q)
+        return render(request, 'appcasona/search.html',
+                      {'Inventario': inventario, 'query': q})
+    else:
+        return render(request, 'appcasona/search_form.html', {'error': True})

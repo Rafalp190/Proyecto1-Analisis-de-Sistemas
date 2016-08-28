@@ -16,6 +16,8 @@ class Proveedor(models.Model):
         managed = True
         db_table = 'proveedor'
 
+    def __unicode__(self):
+        return self.nombreDelProveedor
 
 #
 class Inventario(models.Model):
@@ -30,6 +32,9 @@ class Inventario(models.Model):
         managed = True
         db_table = 'inventario'
 
+    def __unicode__(self):
+        return self.nombreDelProducto
+
 
 
 #
@@ -43,3 +48,7 @@ class Platillo(models.Model):
     class Meta:
         managed = True
         db_table = 'platillo'
+
+
+    def __unicode__(self):
+        return self.nombreDelPlatillo
