@@ -23,7 +23,8 @@ class Inventario(models.Model):
     nombreDelProducto = models.CharField(max_length=255, blank=True, verbose_name='Nombre', db_column='nombreDelProducto')
     cantidadDeProducto = models.BigIntegerField(db_column='cantidadDeProducto', blank=True, verbose_name='Cantidad')
     seccion = models.CharField(max_length=255, blank=True, verbose_name='Seccion', db_column='Seccion')
-    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
+    proveedor = models.ManyToManyField(Proveedor)
+
 
     class Meta:
         managed = True
@@ -37,7 +38,7 @@ class Platillo(models.Model):
     nombreDelPlatillo = models.CharField(max_length=255, db_column='NombreDelPlatillo', verbose_name='Nombre')
     precioPlatillo = models.BigIntegerField(db_column='PrecioDelPlatillo', blank=True, verbose_name='precio')
     imagenPlatillo = models.CharField(max_length=255, db_column='ImagenPlatillo', verbose_name='Imagen')
-    ingredientes = models.ForeignKey(Inventario, on_delete=models.CASCADE)
+    ingredientes = models.ManyToManyField(Inventario)
 
     class Meta:
         managed = True
