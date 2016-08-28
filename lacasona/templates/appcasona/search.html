@@ -1,0 +1,15 @@
+<p>Se ha hecho una búsqueda por: <strong>{{ query }}</strong></p>
+
+{% if Inventario %}
+    <p>Found {{ Inventario|length }} artículo {{ Inventario|pluralize }}.</p> <!-- =D -->
+
+    <p>Id  | Nombre | Cantidad</p>
+
+        {% for item in Inventario %}
+        <span><p>{{item.idProducto}} | {{ item.nombreDelProducto }} | {{ item.cantidadDeProducto }} | {{ item.seccion }} | {{ item.proveedor }}</p></span>
+        {% endfor %}
+
+
+{% else %}
+    <p>No existe ese artículo en el inventario.</p>
+{% endif %}

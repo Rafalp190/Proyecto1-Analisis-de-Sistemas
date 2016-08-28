@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+ {% load staticfiles %}
+ {% csrf_token %}
+ {% block extralib %} 
+    {% load render_table from django_tables2 %}
+    {% load crispy_forms_tags %}
+{% endblock %}
+ 
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Title</title>
+
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{%static 'css/index2.css'%}">
+
+</head>
+<body>
+    <div id="wrapper">
+    <div class="overlay"></div>
+
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                   <span class="text-uppercase">La casona</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Home</a> {% csrf_token %}
+            </li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-folder"></i> Inventario <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{% url 'inventory' %}">Inventario General</a> {% csrf_token %}</li>
+                    <li><a href="{% url 'proveedor' %}">Ingredientes</a> {% csrf_token %}</li>
+                    <li><a href="{% url 'platillo' %}">Platillos</a> {% csrf_token %}</li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#"><i class="fa fa-fw fa-file-o"></i> Caja</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-cog"></i>Menu</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-bank"></i>Otras Cosas</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-dropbox"></i>Mas Cosas</a>
+            </li>
+        </ul>
+
+        <ul class="square">
+             <li class="user-features">
+                <a href="{% url 'logout' %}"><i class="fa fa-fw fa-user"></i> Logout</a>{% csrf_token %}
+            </li>
+        </ul>
+    </nav>
+
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+      </button>
+        <div class="container" style="">
+            <div class="row" style="">
+                <div class="col-md-8 col-md-offset-2">
+							<form action="" method="get">
+								{% crispy filter.form filter.form.helper %}
+									<input type="submit" value="Buscar"/>
+							</form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                	{% render_table table %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+    <!-- /#wrapper -->
+<script src="{%static 'js/jquery-2.2.4.min.js'%}"></script>
+<script src="{%static 'js/bootstrap.min.js'%}"></script>
+<script src="{%static 'js/index2.js'%}"></script>
+</body>
+</html>
