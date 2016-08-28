@@ -11,7 +11,7 @@ class InventarioTable(dt2.Table):
     nombreDelProducto = dt2.Column(accessor='nombreDelProducto')
     cantidadDeProducto = dt2.Column(accessor='cantidadDeProducto')
     seccion = dt2.Column(accessor='seccion')
-    #nombreDelProveedor = dt2.Column(accessor='nombreDelProveedor')
+    proveedor = dt2.Column(accessor='proveedor')
 
     def __init__(self, *args, **kwargs):
         super(InventarioTable, self).__init__(*args, **kwargs)
@@ -34,7 +34,7 @@ class PlatilloTable(dt2.Table):
     nombreDelPlatillo = dt2.Column(accessor='nombreDelPlatillo')
     precioPlatillo = dt2.Column(accessor='precioPlatillo')
     imagenPlatillo = dt2.Column(accessor='imagenPlatillo')
-    #ingredientes = dt2.Column(accessor='ingredientes')
+    ingredientes = dt2.Column(accessor='ingredientes')
 
     def __init__(self, *args, **kwargs):
         super(PlatilloTable, self).__init__(*args, **kwargs)
