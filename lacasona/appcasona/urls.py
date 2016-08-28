@@ -6,6 +6,6 @@ urlpatterns = [
                url(r'^init/', views.log_out, name='logout'),
                url(r'^index/', views.index, name='index'),
                url(r'^inventory/', views.Inventory.as_view(), name='inventory'),
-               url(r'^ingredients/', views.Ingredients.as_view(), name='ingredients'),
-               url(r'^orders/', views.Orders.as_view(), name='orders')
+               url(r'^proveedores/', views.Ingredients.as_view(), name='proveedores'),
+               url(r'^platillos/', views.Orders.as_view(), name='platillos')
                ]
