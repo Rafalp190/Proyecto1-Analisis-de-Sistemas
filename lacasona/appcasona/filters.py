@@ -4,15 +4,15 @@ from .models import Inventario, Proveedor,Platillo
 class InventarioFilter(df.FilterSet):
     class Meta:
         model = Inventario
-        fields = ['idProducto', 'nombreDelProducto']
+        fields = ['idProducto', 'nombreDelProducto','cantidadDeProducto','seccion','proveedor']
         
         
 class ProveedorFilter(df.FilterSet):
     class Meta:
         model = Proveedor
-        fields = ['idIngrediente', 'nombreDelProducto']
+        fields = ['idProveedor', 'nombreDelProveedor','numeroDelProveedor','direccionDelProveedor']
 
 class PlatilloFilter(df.FilterSet):
     class Meta:
         model = Platillo
-        fields = ['factura', 'cliente', 'nit']
+        fields = ['idPlatillo', 'nombreDelPlatillo', 'precioPlatillo','imagenPlatillo','ingredientes']
