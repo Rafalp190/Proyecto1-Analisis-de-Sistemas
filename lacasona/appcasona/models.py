@@ -7,7 +7,7 @@ from django import forms
 # Create your models here.'
 #
 class Proveedor(models.Model):
-    idProveedor = models.BigIntegerField(primary_key=True, verbose_name='ID', default='')
+    idProveedor = models.BigIntegerField(primary_key=True, verbose_name='ID')
     nombreDelProveedor = models.CharField(max_length=255, blank=True, verbose_name='Nombre',db_column='nombreDelProveedor',default='')
     numeroDelProveedor = models.BigIntegerField(db_column='numeroDelProveedor', verbose_name='Numero',default=0)
     direccionDelProveedor = models.CharField(max_length=255, db_column='direccionDelProveedor', verbose_name='Direccion',default='')
