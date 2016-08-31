@@ -15,4 +15,4 @@ class ProveedorFilter(df.FilterSet):
 class PlatilloFilter(df.FilterSet):
     class Meta:
         model = Platillo
-        fields = ['idPlatillo', 'nombreDelPlatillo', 'precioPlatillo','imagenPlatillo','ingredientes']
+        fields = ['idPlatillo', 'nombreDelPlatillo', 'precioPlatillo','imagenPlatillo','ingredientes', 'descripcionPlatillo']

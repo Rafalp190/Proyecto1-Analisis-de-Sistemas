@@ -13,8 +13,8 @@ class InventarioAdmin(admin.ModelAdmin):
     search_fields = ('idProducto', 'nombreDelProducto', 'seccion',)
 
 class PlatilloAdmin(admin.ModelAdmin):
-    list_display = ('idPlatillo', 'nombreDelPlatillo', 'precioPlatillo',  )
-    search_fields = ('idPlatillo', 'nombreDelPlatillo', 'precioPlatillo', )
+    list_display = ('idPlatillo', 'nombreDelPlatillo', 'precioPlatillo', 'descripcionPlatillo', )
+    search_fields = ('idPlatillo', 'nombreDelPlatillo', 'precioPlatillo', 'descripcionPlatillo', )
 
 admin.site.register(Proveedor, ProveedorAdmin)
 admin.site.register(Inventario, InventarioAdmin)

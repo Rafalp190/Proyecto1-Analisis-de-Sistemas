@@ -35,6 +35,8 @@ class PlatilloTable(dt2.Table):
     precioPlatillo = dt2.Column(accessor='precioPlatillo')
     imagenPlatillo = dt2.Column(accessor='imagenPlatillo')
     ingredientes = dt2.Column(accessor='ingredientes')
+    
+    descripcionPlatillo = dt2.Column(accessor='descripcionPlatillo')
 
     def __init__(self, *args, **kwargs):
         super(PlatilloTable, self).__init__(*args, **kwargs)
