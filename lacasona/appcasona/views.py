@@ -57,29 +57,10 @@ def log_in(request):
 def log_out(request):
     logout(request)
     return redirect('login')
+
 def index(request):
-    return render(request, 'appcasona/index.html')
+    return render(request, "appcasona/index.html")
 
-class Inventory(PagedFilteredTableView):
-    model = Inventario
-    template_name = 'appcasona/inventory.html'
-    filter_class = InventarioFilter
-    formhelper_class=InventarioFormHelper
-    table_class = InventarioTable
-
-class Proveedor(PagedFilteredTableView):
-    model = Proveedor
-    template_name = 'appcasona/proveedor.html'
-    filter_class = ProveedorFilter
-    formhelper_class=ProveedorFormHelper
-    table_class = ProveedorTable
-
-class Platillo(PagedFilteredTableView):
-    model = Platillo
-    template_name = 'appcasona/platillo.html'
-    filter_class = PlatilloFilter
-    formhelper_class = PlatilloFormHelper
-    table_class = PlatilloTable
 
 def search_form(request):
     return render(request, 'appcasona/search_form.html')
