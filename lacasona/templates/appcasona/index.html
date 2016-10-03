@@ -1,78 +1,8 @@
-<!DOCTYPE html>
- {% load staticfiles %}
- {% csrf_token %}
- 
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Title</title>
-
-    <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
-    <link rel="stylesheet" href="{%static 'css/index2.css'%}">
-
-</head>
-<body>
-    <div id="wrapper">
-    <div class="overlay"></div>
-
-    <!-- Sidebar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-        <ul class="nav sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                   <span class="text-uppercase">La casona</span>
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Home</a> {% csrf_token %}
-            </li>
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-folder"></i> Inventario <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="{% url 'inventory' %}">Inventario General</a> {% csrf_token %}</li>
-                    <li><a href="{% url 'proveedor' %}">Proveedores</a> {% csrf_token %}</li>
-                    <li><a href="{% url 'platillo' %}">Platillo</a> {% csrf_token %}</li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#"><i class="fa fa-fw fa-file-o"></i> Caja</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-fw fa-cog"></i>Menu</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-fw fa-bank"></i>Otras Cosas</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-fw fa-dropbox"></i>Mas Cosas</a>
-            </li>
-        </ul>
-
-        <ul class="square">
-             <li class="user-features">
-                <a href="{% url 'logout' %}"><i class="fa fa-fw fa-user"></i> Logout</a>{% csrf_token %}
-            </li>
-        </ul>
-    </nav>
-
-
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-      <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
-        <span class="hamb-top"></span>
-        <span class="hamb-middle"></span>
-        <span class="hamb-bottom"></span>
-      </button>
-        <div class="container">
-            <div class="row">
+{% extends "appcasona/base_template.html" %}
+{% block content %}
+ <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                	
+                    <p>Moi was here</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada tincidunt aliquam. Nunc consectetur lacinia placerat. Curabitur et vulputate urna. Sed laoreet purus et diam ultricies vulputate. Etiam eget sollicitudin mauris. Suspendisse a facilisis eros, in volutpat metus. Pellentesque venenatis, neque eu congue imperdiet, elit urna dignissim ipsum, in maximus est quam a augue. Morbi sollicitudin magna nunc, vel volutpat urna hendrerit eget. Aenean nec lacinia odio. Quisque pretium, sem dictum dictum sollicitudin, nisi lorem ornare nibh, ut interdum tellus ex quis sem. Aliquam gravida arcu quis iaculis tempus. Morbi ut consequat sapien. In varius diam erat, at tempor eros dignissim quis. Duis sit amet est tellus.</p>
 
                     <p>Donec non sodales est, a rhoncus ligula. Proin vestibulum aliquam velit, vel sollicitudin orci egestas at. Vivamus interdum interdum leo ac molestie. Aliquam pulvinar efficitur turpis at hendrerit. Nulla eget interdum ante, et viverra massa. Vestibulum volutpat felis sed erat pellentesque, id commodo mi facilisis. Duis erat sapien, mattis in laoreet ac, fringilla quis dolor. Nunc sapien dui, finibus egestas mi vel, mattis consequat augue. Nulla non nisi et tellus elementum aliquet. Nunc vel nisi mauris. Sed consequat purus nisl, at pulvinar erat ultrices vitae. Etiam ultricies lacus eget erat vulputate, nec dapibus turpis molestie. Aliquam eros est, fringilla vel ex vel, bibendum rhoncus tellus.</p>
@@ -84,14 +14,4 @@
                     <p>Donec cursus bibendum pellentesque. Nullam eu ultricies elit, sit amet consequat libero. Nunc ut augue enim. Cras porta dapibus massa, sed pretium purus laoreet et. Cras non ex at odio elementum consequat. Duis euismod aliquam dapibus. Phasellus aliquet ultricies imperdiet. Nulla sed ex dapibus, dignissim massa at, commodo odio.</p>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- /#page-content-wrapper -->
-
-</div>
-    <!-- /#wrapper -->
-<script src="{%static 'js/jquery-2.2.4.min.js'%}"></script>
-<script src="{%static 'js/bootstrap.min.js'%}"></script>
-<script src="{%static 'js/index2.js'%}"></script>
-</body>
-</html>
+{% endblock %}
