@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
     <link rel="stylesheet" href="{%static 'css/index2.css'%}">
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
 
 </head>
 <body>
@@ -42,7 +43,7 @@
                 <a href="#"><i class="fa fa-fw fa-file-o"></i> Caja</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-cog"></i>Menu</a>
+                <a href="{% url 'menu' %}"><i class="fa fa-fw fa-cog"></i>Menu</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-fw fa-bank"></i>Otras Cosas</a>
@@ -80,5 +81,6 @@
 <script src="{%static 'js/jquery-2.2.4.min.js'%}"></script>
 <script src="{%static 'js/bootstrap.min.js'%}"></script>
 <script src="{%static 'js/index2.js'%}"></script>
+<script src="{%static 'js/popup-menu.js'%}"></script>
 </body>
 </html>

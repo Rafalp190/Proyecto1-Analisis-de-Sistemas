@@ -10,9 +10,7 @@
   height: 100px;
   width: 100px;
   display: inline-block;
-  -webkit-transform: translateY(-50px);
-      -ms-transform: translateY(-50px);
-          transform: translateY(-50px);
+  transform: translateY(-50px);
 }
 .login-container {
   height: 400px;
@@ -63,5 +61,11 @@
 .gradient-2 {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
-
-/*# sourceMappingURL=syles.css.map */
+.menu-img {
+  width: 200px;
+  height: 200px;
+}
+.menu-square {
+  border: 1px solid black;
+  display: inline-block;
+}

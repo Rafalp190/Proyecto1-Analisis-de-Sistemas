@@ -17,7 +17,7 @@ from .tables import InventarioTable, ProveedorTable, PlatilloTable
 from .filters import InventarioFilter, ProveedorFilter, PlatilloFilter
 from .forms import InventarioFormHelper, ProveedorFormHelper, PlatilloFormHelper
 from utils import PagedFilteredTableView
-
+from .models import Platillo
 import random
 import datetime
 import time
@@ -73,3 +73,9 @@ def search(request):
                       {'Inventario': inventario, 'query': q})
     else:
         return render(request, 'appcasona/search_form.html', {'error': True})
+
+# Vista del menu
+def menu(request):
+    platillos = Platillo.objects.all()
+    image_sources = Platillo.objects.filter()
+    return render(request, "appcasona/menu.html", {'platillos':platillos})
