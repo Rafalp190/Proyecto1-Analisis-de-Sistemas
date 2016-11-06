@@ -35,8 +35,22 @@ class PlatilloTable(dt2.Table):
     precioPlatillo = dt2.Column(accessor='precioPlatillo')
     imagenPlatillo = dt2.Column(accessor='imagenPlatillo')
     ingredientes = dt2.Column(accessor='ingredientes')
-    
     descripcionPlatillo = dt2.Column(accessor='descripcionPlatillo')
+
+    def __init__(self, *args, **kwargs):
+        super(PlatilloTable, self).__init__(*args, **kwargs)
+        self.counter = itertools.count()
+
+
+class OrdenTable(dt2.Table):
+    ordenNo = dt2.Column(accessor='ordenNo')
+    nombreDelMesero = dt2.Column(accessor='nombreDelMesero')
+    precioPlatillo = dt2.Column(accessor='precioPlatillo')
+    cantidad = dt2.Column(accessor='cantidad')
+    mesa = dt2.Column(accessor='mesa')
+    fecha = dt2.Column(accessor='fecha')
+    platillos = dt2.Column(accessor='platillos')
+
 
     def __init__(self, *args, **kwargs):
         super(PlatilloTable, self).__init__(*args, **kwargs)

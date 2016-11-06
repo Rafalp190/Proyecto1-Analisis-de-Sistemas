@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from models import Proveedor, Inventario, Platillo
+from models import Proveedor, Inventario, Platillo, Orden
 
 
 class ProveedorAdmin(admin.ModelAdmin):
@@ -16,6 +16,10 @@ class PlatilloAdmin(admin.ModelAdmin):
     list_display = ('idPlatillo', 'nombreDelPlatillo', 'precioPlatillo', 'descripcionPlatillo', )
     search_fields = ('idPlatillo', 'nombreDelPlatillo', 'precioPlatillo', 'descripcionPlatillo', )
 
+class OrdenAdmin(admin.ModelAdmin):
+	list_display = ('ordenNo', 'nombreDelMesero', 'precioPlatillo', 'cantidad', 'mesa', 'fecha')
+	search_fields = 
 admin.site.register(Proveedor, ProveedorAdmin)
 admin.site.register(Inventario, InventarioAdmin)
 admin.site.register(Platillo, PlatilloAdmin)
+admin.site.register(Orden, OrdenAdmin)

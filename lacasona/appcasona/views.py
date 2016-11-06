@@ -12,12 +12,11 @@ from django.db.models import Q
 from django_tables2 import SingleTableView
 
 from django.http import HttpResponse
-from .models import Inventario, Proveedor, Platillo
-from .tables import InventarioTable, ProveedorTable, PlatilloTable
-from .filters import InventarioFilter, ProveedorFilter, PlatilloFilter
-from .forms import InventarioFormHelper, ProveedorFormHelper, PlatilloFormHelper
+from .models import Inventario, Proveedor, Platillo, Orden
+from .tables import InventarioTable, ProveedorTable, PlatilloTable, OrdenTable
+from .filters import InventarioFilter, ProveedorFilter, PlatilloFilter, Orden
+from .forms import InventarioFormHelper, ProveedorFormHelper, PlatilloFormHelper, OrdenFormHelper
 from utils import PagedFilteredTableView
-from .models import Platillo
 import random
 import datetime
 import time
