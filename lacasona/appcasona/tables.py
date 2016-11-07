@@ -53,5 +53,5 @@ class OrdenTable(dt2.Table):
 
 
     def __init__(self, *args, **kwargs):
-        super(PlatilloTable, self).__init__(*args, **kwargs)
+        super(OrdenTable, self).__init__(*args, **kwargs)
         self.counter = itertools.count()

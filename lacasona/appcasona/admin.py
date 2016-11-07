@@ -18,7 +18,8 @@ class PlatilloAdmin(admin.ModelAdmin):
 
 class OrdenAdmin(admin.ModelAdmin):
 	list_display = ('ordenNo', 'nombreDelMesero', 'precioPlatillo', 'cantidad', 'mesa', 'fecha')
-	search_fields = 
+	search_fields = ('ordenNo', 'nombreDelMesero', 'precioPlatillo', 'cantidad', 'mesa', 'fecha')
+
 admin.site.register(Proveedor, ProveedorAdmin)
 admin.site.register(Inventario, InventarioAdmin)
 admin.site.register(Platillo, PlatilloAdmin)

@@ -56,7 +56,7 @@ class Platillo(models.Model):
 
 
 class Orden(models.Model):
-    ordenNo = models.BigIntegerField(primary_key=True, verbose_name='ID')
+    ordenNo = models.BigIntegerField(verbose_name='ID')
     nombreDelMesero = models.CharField(max_length=255, db_column='NombreDelMesero', verbose_name='nombreDelMesero')
     precioPlatillo = models.BigIntegerField(db_column='PrecioPlatillo', blank=True, verbose_name='precioPlatillo')
     cantidad = models.BigIntegerField(db_column='Cantidad', blank=True, verbose_name='cantidad')
