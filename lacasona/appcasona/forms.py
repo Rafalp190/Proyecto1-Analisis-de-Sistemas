@@ -1,6 +1,6 @@
     
 from django import forms
-from .models import Inventario,Proveedor,Platillo
+from .models import Inventario, Proveedor, Platillo, Orden
 from crispy_forms.helper import FormHelper
 
 class InventarioFormHelper(FormHelper):
@@ -13,4 +13,8 @@ class ProveedorFormHelper(FormHelper):
     
 class PlatilloFormHelper(FormHelper):
     model = Platillo
+    form_tag = False
+
+class OrdenFormHelper(FormHelper):
+    model = Orden
     form_tag = False

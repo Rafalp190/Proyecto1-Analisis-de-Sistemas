@@ -53,3 +53,21 @@ class Platillo(models.Model):
 
     def __unicode__(self):
         return self.nombreDelPlatillo
+
+
+class Orden(models.Model):
+    ordenNo = models.BigIntegerField(primary_key=True, verbose_name='ID')
+    nombreDelMesero = models.CharField(max_length=255, db_column='NombreDelMesero', verbose_name='nombreDelMesero')
+    precioPlatillo = models.BigIntegerField(db_column='PrecioPlatillo', blank=True, verbose_name='precioPlatillo')
+    cantidad = models.BigIntegerField(db_column='Cantidad', blank=True, verbose_name='cantidad')
+    mesa = models.BigIntegerField(blank=True, db_column='Mesa', verbose_name='mesa')
+    fecha = models.CharField(max_length=255, db_column='Fecha', verbose_name='fecha')
+    platillos = models.ManyToManyField(Platillo)
+
+    class Meta:
+        managed = True
+        db_table = 'ordenes'
+
+
+    def __unicode__(self):
+        return self.numeroDeOrden
