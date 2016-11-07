@@ -51,8 +51,7 @@ def log_in(request):
     else:
         return render(request, 'appcasona/index.html')
 
-#REMOVE WHEN LOGIN TEMPLATE IS COMPLETE
-#    return render(request, 'appcasona/login_template.html')
+
 
 def log_out(request):
     logout(request)
