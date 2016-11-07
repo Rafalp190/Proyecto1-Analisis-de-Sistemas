@@ -1,0 +1,44 @@
+{% extends "appcasona/base_template.html" %}
+{% block content %}
+{% load staticfiles %}
+    <h1>Menu</h1>
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                   <span class="text-uppercase">La casona</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'index' %}"><i class="fa fa-fw fa-home"></i> Home</a> {% csrf_token %}
+
+            <li>
+                <a href="#"><i class="fa fa-fw fa-file-o"></i> Caja</a>
+            </li>
+            <li>
+                <a href="{% url 'menu' %}"><i class="fa fa-fw fa-cog"></i>Menu</a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-fw fa-bank"></i>Carrito</a>
+            </li>
+        </ul>
+
+        <ul class="square">
+             <li class="user-features">
+                <a href="{% url 'logout' %}"><i class="fa fa-fw fa-user"></i> Logout</a>{% csrf_token %}
+            </li>
+        </ul>
+    </nav>
+    <div class="row">
+         {% for platillo in platillos %}
+        <div class="col-md-4 text-center">
+            <div class="menu-square">
+                <p>Nombre: {{ platillo.nombreDelPlatillo }}</p>
+                <img class="menu-img" src="{% static 'images/'%}{{ platillo.imagenPlatillo }}" alt="{{platillo.imagenPlatillo}}">
+                <p>Precio: {{ platillo.precioPlatillo }}</p>
+                <!--<p>{{ post.text|linebreaksbr }}</p>-->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
