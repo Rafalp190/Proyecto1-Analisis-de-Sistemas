@@ -7,7 +7,13 @@ from django import forms
 # Create your models here.'
 #
 class Proveedor(models.Model):
-    idProveedor = models.BigIntegerField(primary_key=True, verbose_name='ID')
+    def number():
+    no = models.objects.count()
+    if no == None:
+        return 1
+    else:
+        return no +1
+    idProveedor = models.BigIntegerField(primary_key=True, verbose_name='ID', default=number)
     nombreDelProveedor = models.CharField(max_length=255, blank=True, verbose_name='Nombre',db_column='nombreDelProveedor',default='')
     numeroDelProveedor = models.BigIntegerField(db_column='numeroDelProveedor', verbose_name='Numero',default=0)
     direccionDelProveedor = models.CharField(max_length=255, db_column='direccionDelProveedor', verbose_name='Direccion',default='')
@@ -21,7 +27,13 @@ class Proveedor(models.Model):
 
 #
 class Inventario(models.Model):
-    idProducto = models.BigIntegerField(primary_key=True, verbose_name='ID')
+    def number():
+    no = models.objects.count()
+    if no == None:
+        return 1
+    else:
+        return no +1
+    idProducto = models.BigIntegerField(primary_key=True, verbose_name='ID', default=number)
     nombreDelProducto = models.CharField(max_length=255, blank=True, verbose_name='Nombre', db_column='nombreDelProducto')
     cantidadDeProducto = models.BigIntegerField(db_column='cantidadDeProducto', blank=True, verbose_name='Cantidad')
     seccion = models.CharField(max_length=255, blank=True, verbose_name='Seccion', db_column='Seccion')
@@ -39,7 +51,13 @@ class Inventario(models.Model):
 
 #
 class Platillo(models.Model):
-    idPlatillo = models.BigIntegerField(primary_key=True, verbose_name='ID')
+    def number():
+    no = models.objects.count()
+    if no == None:
+        return 1
+    else:
+        return no +1
+    idPlatillo = models.BigIntegerField(primary_key=True, verbose_name='ID',  default=number)
     nombreDelPlatillo = models.CharField(max_length=255, db_column='NombreDelPlatillo', verbose_name='Nombre')
     precioPlatillo = models.BigIntegerField(db_column='PrecioDelPlatillo', blank=True, verbose_name='precio')
     imagenPlatillo = models.CharField(max_length=255, db_column='ImagenPlatillo', verbose_name='Imagen')
@@ -55,8 +73,17 @@ class Platillo(models.Model):
         return self.nombreDelPlatillo
 
 
+
+
 class Orden(models.Model):
-    ordenNo = models.BigIntegerField(verbose_name='ID')
+    def number():
+    no = models.objects.count()
+    if no == None:
+        return 1
+    else:
+        return no +1
+
+    ordenNo = models.BigIntegerField(primary_key=True, verbose_name='ID', default=number)
     nombreDelMesero = models.CharField(max_length=255, db_column='NombreDelMesero', verbose_name='nombreDelMesero')
     precioPlatillo = models.BigIntegerField(db_column='PrecioPlatillo', blank=True, verbose_name='precioPlatillo')
     cantidad = models.BigIntegerField(db_column='Cantidad', blank=True, verbose_name='cantidad')
