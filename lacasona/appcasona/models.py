@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django import forms
 
-
 # Create your models here.'
 #
 # class Proveedor(models.Model):
@@ -34,6 +33,7 @@ class Inventario(models.Model):
 
     def inventario_id(self):
         return self.id
+
     class Meta:
         managed = True
         db_table = 'inventario'
@@ -45,15 +45,15 @@ class Inventario(models.Model):
 
 #
 class Platillo(models.Model):
-
     nombreDelPlatillo = models.CharField(max_length=255, db_column='NombreDelPlatillo', verbose_name='Nombre')
     precioPlatillo = models.FloatField(db_column='PrecioDelPlatillo', blank=True, verbose_name='precio')
     imagenPlatillo = models.CharField(max_length=255, db_column='ImagenPlatillo', verbose_name='Imagen')
     descripcionPlatillo = models.CharField(max_length=255, blank=True, db_column='DescripcionDelPlatillo', verbose_name='Descripcion')
-    ingredientes = models.ManyToManyField(Inventario)
+    ingredientes = models.ManyToManyField(Inventario, through='Cantidad')
 
     def platillo_id(self):
         return self.id
+
     class Meta:
         managed = True
         db_table = 'platillo'
@@ -61,6 +61,14 @@ class Platillo(models.Model):
 
     def __unicode__(self):
         return self.nombreDelPlatillo
+
+
+class Cantidad(models.Model):
+    platillo = models.ForeignKey(Platillo, on_delete=models.CASCADE)
+    inventario = models.ForeignKey(Inventario, on_delete=models.CASCADE)
+    cantidad = models.FloatField(db_column='Cantidad', blank=True, verbose_name='cantidad')
+
+
 
 
 
@@ -75,6 +83,7 @@ class Orden(models.Model):
 
     def orden_id(self):
         return self.id
+
     class Meta:
         managed = True
         db_table = 'ordenes'

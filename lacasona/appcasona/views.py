@@ -3,6 +3,7 @@
 
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
+
 from django.template import RequestContext
 from .models import Inventario, Platillo, Orden
 
@@ -58,11 +59,14 @@ def search(request):
     else:
         return render(request, 'appcasona/search_form.html', {'error': True})
 
+
+
 # Vista del menu
 def menu(request):
     platillos = Platillo.objects.all()
     image_sources = Platillo.objects.filter()
     return render(request, "appcasona/menu.html", {'platillos':platillos})
+
 
 def platillo_detail(request, platillo_id):
     context = RequestContext(request)
@@ -73,3 +77,13 @@ def platillo_detail(request, platillo_id):
                     'imagen': plato.imagenPlatillo}
 
     return render_to_response("appcasona/descripcion.html",context_dict, context)
+
+
+def cocina(request):
+    if request.GET.get('completed'):
+        message = 'You submitted: %r' % request.GET['completed']
+        return HttpResponse(message)
+    else:
+        ordenes = Orden.objects.all()
+        return render(request, "appcasona/cocina.html", {'ordenes': ordenes})
+
