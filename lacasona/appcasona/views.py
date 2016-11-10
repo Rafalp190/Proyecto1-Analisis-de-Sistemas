@@ -65,3 +65,14 @@ def menu(request):
     platillos = Platillo.objects.all()
     image_sources = Platillo.objects.filter()
     return render(request, "appcasona/menu.html", {'platillos':platillos})
+<<<<<<< HEAD
+=======
+
+def cocina(request):
+    if request.GET.get('completed'):
+        message = 'You submitted: %r' % request.GET['completed']
+        return HttpResponse(message)
+    else:
+        ordenes = Orden.objects.all()
+        return render(request, "appcasona/cocina.html", {'ordenes': ordenes})
+>>>>>>> be71f7922803baca5842039766a4e38c8c826eee
