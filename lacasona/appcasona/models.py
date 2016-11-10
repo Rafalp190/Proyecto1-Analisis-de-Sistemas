@@ -50,7 +50,7 @@ class Platillo(models.Model):
     precioPlatillo = models.FloatField(db_column='PrecioDelPlatillo', blank=True, verbose_name='precio')
     imagenPlatillo = models.CharField(max_length=255, db_column='ImagenPlatillo', verbose_name='Imagen')
     descripcionPlatillo = models.CharField(max_length=255, blank=True, db_column='DescripcionDelPlatillo', verbose_name='Descripcion')
-    ingredientes = models.ManyToManyField(Inventario)
+    ingredientes = models.ManyToManyField(Inventario, through='Cantidad')
 
     def platillo_id(self):
         return self.id
@@ -61,6 +61,9 @@ class Platillo(models.Model):
 
     def __unicode__(self):
         return self.nombreDelPlatillo
+		
+class Cantidad(models.Model):
+	cantidad = models.FloatField(db_column='Cantidad',blank=True, verbose_name='cantidad')
 
 
 
