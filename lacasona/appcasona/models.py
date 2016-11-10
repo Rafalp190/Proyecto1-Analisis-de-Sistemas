@@ -34,6 +34,7 @@ class Inventario(models.Model):
 
     def inventario_id(self):
         return self.id
+
     class Meta:
         managed = True
         db_table = 'inventario'
@@ -45,7 +46,6 @@ class Inventario(models.Model):
 
 #
 class Platillo(models.Model):
-
     nombreDelPlatillo = models.CharField(max_length=255, db_column='NombreDelPlatillo', verbose_name='Nombre')
     precioPlatillo = models.FloatField(db_column='PrecioDelPlatillo', blank=True, verbose_name='precio')
     imagenPlatillo = models.CharField(max_length=255, db_column='ImagenPlatillo', verbose_name='Imagen')
@@ -54,6 +54,7 @@ class Platillo(models.Model):
 
     def platillo_id(self):
         return self.id
+
     class Meta:
         managed = True
         db_table = 'platillo'
@@ -61,9 +62,12 @@ class Platillo(models.Model):
 
     def __unicode__(self):
         return self.nombreDelPlatillo
-		
+
+
 class Cantidad(models.Model):
-	cantidad = models.FloatField(db_column='Cantidad',blank=True, verbose_name='cantidad')
+    platillo = models.ForeignKey(Platillo, on_delete=models.CASCADE)
+    inventario = models.ForeignKey(Inventario, on_delete=models.CASCADE)
+    cantidad = models.FloatField(db_column='Cantidad', blank=True, verbose_name='cantidad')
 
 
 
@@ -78,6 +82,7 @@ class Orden(models.Model):
 
     def orden_id(self):
         return self.id
+
     class Meta:
         managed = True
         db_table = 'ordenes'
