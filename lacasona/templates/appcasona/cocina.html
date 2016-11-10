@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Cocina</title>
+</head>
+<body>
+<h1>Ordenes activas</h1>
+    <div class="row">
+        {% for orden in ordenes %}
+            {% if orden.status == 0 %}
+                <div class="col-md-4 text-center">
+                    <p>{{ orden.id }}</p>
+                    <p>{{ orden.nombreDelMesero }}</p>
+                    <p>{{ orden.fecha }}</p>
+                    <p>
+                        Orden activa
+                    </p>
+                    <p>
+                        Platillos:
+                    </p>
+                        {%  for platillo in orden.platillos.all %}
+                            <h2>
+                                {{ platillo.nombreDelPlatillo }}
+                            </h2>
+                            <ul>
+                                {% for ingrediente in platillo.ingredientes.all %}
+                                    <li>{{ ingrediente }}</li>
+                                {% endfor %}
+                            </ul>
+                            <p>
+                                {{ platillo.descripcionPlatillo }}
+                            </p>
+                        {% endfor %}
+                    </p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
