@@ -65,6 +65,9 @@ def menu(request):
     return render(request, "appcasona/menu.html", {'platillos':platillos})
 
 def cocina(request):
-    ordenes = Orden.objects.all()
-
-    return render(request, "appcasona/cocina.html", {'ordenes': ordenes})
+    if request.GET.get('cancel'):
+        message = 'You submitted: %r' % request.GET['cancel']
+        return HttpResponse(message)
+    else:
+        ordenes = Orden.objects.all()
+        return render(request, "appcasona/cocina.html", {'ordenes': ordenes})
