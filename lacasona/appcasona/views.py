@@ -58,6 +58,8 @@ def search(request):
     else:
         return render(request, 'appcasona/search_form.html', {'error': True})
 
+
+
 # Vista del menu
 def menu(request):
     platillos = Platillo.objects.all()

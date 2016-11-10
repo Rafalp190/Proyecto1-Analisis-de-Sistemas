@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 from django.db import models
 from django import forms
 
-
 # Create your models here.'
 #
 # class Proveedor(models.Model):
@@ -68,6 +67,8 @@ class Cantidad(models.Model):
     platillo = models.ForeignKey(Platillo, on_delete=models.CASCADE)
     inventario = models.ForeignKey(Inventario, on_delete=models.CASCADE)
     cantidad = models.FloatField(db_column='Cantidad', blank=True, verbose_name='cantidad')
+
+
 
 
 
