@@ -9,7 +9,7 @@ urlpatterns = [
                url(r'^index/', views.index, name='index'),
                url(r'^menu/', views.menu, name='menu'),
                url(r'^inventory/', RedirectView.as_view(url="/admin/appcasona/inventario/"), name='inventory'),
-               url(r'^proveedor/', RedirectView.as_view(url="/admin/appcasona/proveedor/"), name='proveedor'),
+               #url(r'^proveedor/', RedirectView.as_view(url="/admin/appcasona/proveedor/"), name='proveedor'),
                url(r'^platillo/', RedirectView.as_view(url="/admin/appcasona/platillo/"), name='platillo'),
                url(r'^orden/', RedirectView.as_view(url="/admin/appcasona/orden/"), name='orden')
                ]

@@ -2,24 +2,10 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import Group
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
-from django_tables2 import RequestConfig
-from django.views.decorators.csrf import csrf_protect
-from django.views.decorators.http import require_http_methods
-from django.db.models import Q
-from django_tables2 import SingleTableView
-
 from django.http import HttpResponse
-from .models import Inventario, Proveedor, Platillo, Orden
-from .tables import InventarioTable, ProveedorTable, PlatilloTable, OrdenTable
-from .filters import InventarioFilter, ProveedorFilter, PlatilloFilter, Orden
-from .forms import InventarioFormHelper, ProveedorFormHelper, PlatilloFormHelper, OrdenFormHelper
-from utils import PagedFilteredTableView
-import random
-import datetime
-import time
+from .models import Inventario, Platillo, Orden
+
 # Create your views here.
 def log_in(request):
     #Maneja los errores

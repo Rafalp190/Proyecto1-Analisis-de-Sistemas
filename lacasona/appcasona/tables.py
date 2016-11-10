@@ -7,7 +7,7 @@ from django.utils.html import escape
 
 
 class InventarioTable(dt2.Table):
-    idProducto = dt2.Column(accessor='idProducto')
+    idProducto = dt2.Column(accessor='id')
     nombreDelProducto = dt2.Column(accessor='nombreDelProducto')
     cantidadDeProducto = dt2.Column(accessor='cantidadDeProducto')
     seccion = dt2.Column(accessor='seccion')
@@ -18,19 +18,19 @@ class InventarioTable(dt2.Table):
         self.counter = itertools.count()
 
 
-class ProveedorTable(dt2.Table):
-    idProveedor = dt2.Column(accessor='idProveedor')
-    nombreDelProveedor = dt2.Column(accessor='nombreDelProveedor')
-    numeroDelProveedor = dt2.Column(accessor='numeroDelProveedor')
-    direccionDelProveedor = dt2.Column(accessor='direccionDelProveedor')
-
-    def __init__(self, *args, **kwargs):
-        super(ProveedorTable, self).__init__(*args, **kwargs)
-        self.counter = itertools.count()
+# class ProveedorTable(dt2.Table):
+#     idProveedor = dt2.Column(accessor='idProveedor')
+#     nombreDelProveedor = dt2.Column(accessor='nombreDelProveedor')
+#     numeroDelProveedor = dt2.Column(accessor='numeroDelProveedor')
+#     direccionDelProveedor = dt2.Column(accessor='direccionDelProveedor')
+#
+#     def __init__(self, *args, **kwargs):
+#         super(ProveedorTable, self).__init__(*args, **kwargs)
+#         self.counter = itertools.count()
 
 
 class PlatilloTable(dt2.Table):
-    idPlatillo = dt2.Column(accessor='idPlatillo')
+    idPlatillo = dt2.Column(accessor='id')
     nombreDelPlatillo = dt2.Column(accessor='nombreDelPlatillo')
     precioPlatillo = dt2.Column(accessor='precioPlatillo')
     imagenPlatillo = dt2.Column(accessor='imagenPlatillo')
@@ -43,7 +43,7 @@ class PlatilloTable(dt2.Table):
 
 
 class OrdenTable(dt2.Table):
-    ordenNo = dt2.Column(accessor='ordenNo')
+    ordenNo = dt2.Column(accessor='id')
     nombreDelMesero = dt2.Column(accessor='nombreDelMesero')
     precioPlatillo = dt2.Column(accessor='precioPlatillo')
     cantidad = dt2.Column(accessor='cantidad')
