@@ -1,20 +1,24 @@
 import itertools
+from .models import Inventario, Platillo, Orden, Cantidad
+
+def resta(lista, nombre)
+	#donde dice "carne", se debe poner el nombre del platillo que rafa manda.
+	ingredientes = Platillo.objects.get(nombreDelPlatillo = nombre).ingredientes.all()
+	print ingredientes
 
 
-def restainventario(str,list):
-
-	ingredientes= platillo.objetcs.filter(str)   			    #es una lista de los ingredientes del platillo
-	lista = 
-	enPlatillo = [x for x in ingredientes if x not in list]  	#quito los ingredientes que estan en list de ingredientes
-	x=0
-	#inicio mi contador
-	for i in enPlatillo:
-	inventario.objetcs.filter(nombreDelProducto=enPlatillo[x]	).update(cantidadDeProducto=resta)
-	ingre
-	x=x+1
-
-
-
+	x=len(ingredientes)-1
+	y=len(lista)-1
+	while x>=0:
+	        while y>=0:
+	                if ingredientes[x]==lista[y]:
+	                        ingredientes.pop(x)
+	                else:
+	                        break
+	                y=y-1
+	        y=len(lista)-1
+	        x=x-1
+	print ingredientes
 
 
 
