@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, render_to_response
+from django.template import RequestContext
 from django.http import HttpResponse
 from .models import Inventario, Platillo, Orden
 
@@ -65,3 +66,14 @@ def menu(request):
     platillos = Platillo.objects.all()
     image_sources = Platillo.objects.filter()
     return render(request, "appcasona/menu.html", {'platillos':platillos})
+
+
+def platillo_detail(request, platillo_id):
+    context = RequestContext(request)
+    plato = get_object_or_404(Platillo, pk=platillo_id)
+    context_dict = {'nombre': plato.nombreDelPlatillo,
+                    'descripcion': plato.descripcionPlatillo,
+                    'precio': str(plato.precioPlatillo),
+                    'imagen': plato.imagenPlatillo}
+
+    return render_to_response("appcasona/descripcion.html",context_dict, context)
