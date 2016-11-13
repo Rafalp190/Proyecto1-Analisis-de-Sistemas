@@ -67,7 +67,7 @@ def menu(request):
     image_sources = Platillo.objects.filter()
     return render(request, "appcasona/menu.html", {'platillos':platillos})
 
-#<<<<<<< HEAD
+
 def cocina(request):
     if request.GET.get('completed'):
         order_id = request.GET['completed']
@@ -108,4 +108,4 @@ def platillo_detail(request, platillo_id):
                     'ingredientes': ingredientes}
 
     return render_to_response("appcasona/descripcion.html",context_dict, context)
-#>>>>>>> 7c69b40822d3cfb8882adb228e94f361c6f4cf85
+
