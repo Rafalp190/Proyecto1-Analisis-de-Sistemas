@@ -1,20 +1,24 @@
 from django.contrib import admin
 
 # Register your models here.
-from models import Inventario, Platillo, Orden
+from models import Inventario, Platillo, Orden, Cantidad
 
 
 # class ProveedorAdmin(admin.ModelAdmin):
 #     list_display = ('idProveedor', 'nombreDelProveedor', 'numeroDelProveedor')
 #     search_fields = ('idProveedor', 'nombreDelProveedor', 'numeroDelProveedor')
 
+class CantidadInline(admin.TabularInline):
+    model = Cantidad
+    extra = 1
+
 class InventarioAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombreDelProducto', 'cantidadDeProducto', 'seccion')
-    search_fields = ('id', 'nombreDelProducto', 'seccion')
+    inlines = (CantidadInline,)
 
 class PlatilloAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombreDelPlatillo', 'precioPlatillo', 'descripcionPlatillo', )
-    search_fields = ('id', 'nombreDelPlatillo', 'precioPlatillo', 'descripcionPlatillo', )
+    inlines = (CantidadInline,)
+
+
 
 class OrdenAdmin(admin.ModelAdmin):
 	list_display = ('id', 'nombreDelMesero', 'mesa', 'fecha', 'status')

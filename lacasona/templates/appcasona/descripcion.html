@@ -1,0 +1,27 @@
+{% extends "appcasona/base_template.html" %}
+{% block content %}
+{% load staticfiles %}
+    <h1>{{ nombre }}</h1>
+
+ <div class="row">
+                <div>
+                    <img class="menu-img" src="{% static 'images/'%}{{ imagen }}" alt="{{imagen}}">
+                    <h2>Descripcion</h2>
+                    <p>{{ descripcion }}</p>
+
+                    <h3>Precio: Q.{{ precio }}</h3>
+                   </div>
+                    <div>
+                        <div class="btn-group">
+                        <div class="btn btn-primary" >
+                                <a href="{% url 'menu' %}">Volver</a>
+                            </div>
+                        <div class="btn btn-primary" >
+                                <a href="{% url 'menu' %}">Ordenar Otro</a>
+                            </div>
+                        <div class="btn btn-primary" >
+                                <a href="{% url 'menu' %}">Completar Orden</a>
+                            </div>
+                    </div>
+            </div>
+{% endblock %}

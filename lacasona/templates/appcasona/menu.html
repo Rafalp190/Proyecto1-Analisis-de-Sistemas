@@ -5,9 +5,9 @@
     <div class="row">
         {% for platillo in platillos %}
         <div class="col-md-4 text-center">
-            <a href="{{ platillo.platillo_id }}">
+            <a href="{% url 'descripcion' platillo.platillo_id  %}">
                 <div class="menu-square">
-                <p>Nombre: {{ platillo.nombreDelPlatillo }}</p>
+                <p>{{ platillo.nombreDelPlatillo }}</p>
                 <img class="menu-img" src="{% static 'images/'%}{{ platillo.imagenPlatillo }}" alt="{{platillo.imagenPlatillo}}">
                 <p>Precio: {{ platillo.precioPlatillo }}</p>
                 <!--<p>{{ post.text|linebreaksbr }}</p>-->
