@@ -7,6 +7,7 @@
 
 // BACKGROUND COLOR
 @bg-color: #fff;
+@admin-dark-blue: #417690;
 
 // TEXT COLOR
 @text-color: #000;
@@ -99,7 +100,7 @@ html {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
-  background: #1a1a1a;
+  background: @admin-dark-blue;
   height: @full-height;
   left: 220px;
   margin-left: -220px;
@@ -224,6 +225,9 @@ html {
       display: block;
       padding: 10px 15px 10px 30px;
       text-decoration: none;
+    }
+    &.logout:hover a i{
+      color: red !important;
     }
   }
   li.open {
@@ -442,6 +446,9 @@ body, html {background-color: @bg-color} body {h1,h2,h3,h4 {color:fadeout(@text-
   }
 }
 
+.color-white{
+  color: #fff !important;
+}
 /*-------------------------------*/
 /*       Tablas                  */
 /*-------------------------------*/
@@ -464,4 +471,8 @@ body, html {background-color: @bg-color} body {h1,h2,h3,h4 {color:fadeout(@text-
 
 .table-container > table {
   width: 100%;
+}
+
+.text-decoration-none{
+  text-decoration: none;
 }
