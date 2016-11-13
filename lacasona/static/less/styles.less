@@ -2,7 +2,7 @@
 @login-cirlce-dimentions: 100px;
 @login-person-size: 70px;
 @login-background-color: lightskyblue;
-
+@order-id-color: black;
 
 .display-inline-block{
   display: inline-block;
@@ -70,6 +70,10 @@
   display: table-cell; float: none; height: 100%;
 }
 
+.order-id{
+  color: @order-id-color;
+  font-size: 1.3em;
+}
 
 /*Mixins*/
 .gradient (@startColor: #eee, @endColor: red) {
