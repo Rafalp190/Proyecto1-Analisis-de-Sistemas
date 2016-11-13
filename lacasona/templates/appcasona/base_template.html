@@ -51,11 +51,9 @@
             <li>
                 <a href="#"><i class="fa fa-fw fa-dropbox"></i>Personal</a>
             </li>
-        </ul>
+            <li class="logout">
+                <a href="#" class="logout-menu" data-toggle="modal" data-target="#myModalLogout"><i class="fa fa-fw fa-user logout-menu"></i> Logout</a>{% csrf_token %}
 
-        <ul class="square">
-             <li class="user-features">
-                <a href="{% url 'logout' %}"><i class="fa fa-fw fa-user"></i> Logout</a>{% csrf_token %}
             </li>
         </ul>
     </nav>
@@ -71,6 +69,24 @@
         <span class="hamb-bottom"></span>
       </button>
         <div class="container">
+         <!-- Modal -->
+                <div class="modal fade" id="myModalLogout" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Salir del sistema</h4>
+                      </div>
+                      <div class="modal-body">
+                        ¿Esta seguro que desea salir del sistema?
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <a href="{% url 'logout' %}" type="button" class="btn btn-primary text-decoration-none">Salir del sistema</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             {% block content %} {% endblock %}
         </div>
     </div>

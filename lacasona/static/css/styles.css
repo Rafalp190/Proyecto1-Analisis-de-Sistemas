@@ -68,6 +68,14 @@
 .recuadro-caja {
   border: 1px solid black;
 }
+.logout-menu {
+  color: white;
+}
+.logout-menu:hover {
+  color: red !important;
+  size: 20px;
+  font-weight: bold;
+}
 .menu-img {
   width: 200px;
   height: 200px;
