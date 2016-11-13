@@ -10,14 +10,14 @@ def resta(lista, nombre)
 	x=len(ingredientes)-1
 	y=len(lista)-1
 	while x>=0:
-	        while y>=0:
-	                if ingredientes[x]==lista[y]:
-	                        ingredientes.pop(x)
-	                else:
-	                        break
-	                y=y-1
-	        y=len(lista)-1
-	        x=x-1
+			while y>=0:
+					if ingredientes[x]==lista[y]:
+							ingredientes.pop(x)
+					else:
+							break
+					y=y-1
+			y=len(lista)-1
+			x=x-1
 	print ingredientes
 
 
