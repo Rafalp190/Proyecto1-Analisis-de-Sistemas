@@ -57,6 +57,10 @@
   float: none;
   height: 100%;
 }
+.order-id {
+  color: black;
+  font-size: 1.3em;
+}
 /*Mixins*/
 .gradient-2 {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);

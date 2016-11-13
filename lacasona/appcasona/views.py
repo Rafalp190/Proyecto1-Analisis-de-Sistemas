@@ -66,8 +66,13 @@ def menu(request):
 
 def cocina(request):
     if request.GET.get('completed'):
-        message = 'You submitted: %r' % request.GET['completed']
-        return HttpResponse(message)
+        order_id = request.GET['completed']
+        one_entry = Orden.objects.get(pk=order_id)
+        one_entry.status = 1
+        one_entry.save()
+
+        ordenes = Orden.objects.all()
+        return render(request, "appcasona/cocina.html", {'ordenes': ordenes})
     else:
         ordenes = Orden.objects.all()
         return render(request, "appcasona/cocina.html", {'ordenes': ordenes})
