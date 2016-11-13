@@ -10,6 +10,7 @@
                     <p>{{ descripcion }}</p>
                     <p>Si desea remover algun ingrediente seleccionelo</p>
                     {% for ing in ingredientes %}
+
                     <div class="checkbox">
                          <label><input type="checkbox" value="">{{ ing }}</label>
                     </div>
@@ -22,8 +23,10 @@
                                 <a href="{% url 'menu' %}">Volver</a>
                             </div>
                         <div class="btn btn-primary" >
+                            <form action="." method = POST>
                                 <a href="{% url 'menu' %}">Ordenar Otro</a>
                             </div>
+                            </form>
                         <div class="btn btn-primary" >
                                 <a href="{% url 'menu' %}">Completar Orden</a>
                             </div>
