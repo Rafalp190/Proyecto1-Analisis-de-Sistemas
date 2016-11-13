@@ -8,7 +8,12 @@
                     <img class="menu-img" src="{% static 'images/'%}{{ imagen }}" alt="{{imagen}}">
                     <h2>Descripcion</h2>
                     <p>{{ descripcion }}</p>
-
+                    <p>Si desea remover algun ingrediente seleccionelo</p>
+                    {% for ing in ingredientes %}
+                    <div class="checkbox">
+                         <label><input type="checkbox" value="">{{ ing }}</label>
+                    </div>
+                    {% endfor %}
                     <h3>Precio: Q.{{ precio }}</h3>
                    </div>
                     <div>
@@ -24,4 +29,5 @@
                             </div>
                     </div>
             </div>
+ </div>
 {% endblock %}

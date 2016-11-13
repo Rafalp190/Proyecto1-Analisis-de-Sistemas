@@ -71,9 +71,12 @@ def menu(request):
 def platillo_detail(request, platillo_id):
     context = RequestContext(request)
     plato = get_object_or_404(Platillo, pk=platillo_id)
+    ingredientes = plato.ingredientes.all()
+
     context_dict = {'nombre': plato.nombreDelPlatillo,
                     'descripcion': plato.descripcionPlatillo,
                     'precio': str(plato.precioPlatillo),
-                    'imagen': plato.imagenPlatillo}
+                    'imagen': plato.imagenPlatillo,
+                    'ingredientes': ingredientes}
 
     return render_to_response("appcasona/descripcion.html",context_dict, context)
