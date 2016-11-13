@@ -9,6 +9,7 @@ urlpatterns = [
                url(r'^index/', views.index, name='index'),
                url(r'^menu/', views.menu, name='menu'),
                url(r'^cocina/', views.cocina, name='cocina'),
+               url(r'^caja/', views.caja, name='caja'),
                url(r'^inventory/', RedirectView.as_view(url="/admin/appcasona/inventario/"), name='inventory'),
                #url(r'^proveedor/', RedirectView.as_view(url="/admin/appcasona/proveedor/"), name='proveedor'),
                url(r'^(?P<platillo_id>[0-9]+)/descripcion/$', views.platillo_detail, name='descripcion'),

@@ -16,41 +16,42 @@
 
 </head>
 <body>
-<h1>Ordenes activas</h1>
+<h1 class="text-center">Caja</h1>
     <div class="row">
         {% for orden in ordenes %}
-            {% if orden.status == 0 %}
-                <div class="col-md-4 text-center">
-                    <p>{{ orden.id }}</p>
-                    <p>{{ orden.nombreDelMesero }}</p>
-                    <p>{{ orden.fecha }}</p>
+                <div class="col-md-4 text-left recuadro-caja">
+                    <p>ID de la orden: {{ orden.id }}</p>
                     <p>
-                        Orden activa
+                      El estado de la orden es:
+                      {% if orden.status == 0 %}
+                        ACTIVO
+                      {% elif orden.status == 1 %}
+                        COMPLETADO
+                      {% elif orden.status == 2 %}
+                        PAGADO
+                      {% endif %}
                     </p>
+
+                    <p>Mesero encargado: {{ orden.nombreDelMesero }}</p>
+                    <p>Fecha: {{ orden.fecha }}</p>
                     <p>
                         Platillos:
                     </p>
+                      <ul>
                         {%  for platillo in orden.platillos.all %}
-                            <h2>
+                            <li>
                                 {{ platillo.nombreDelPlatillo }}
-                            </h2>
-                            <ul>
-                                {% for ingrediente in platillo.ingredientes.all %}
-                                    <li>{{ ingrediente }}</li>
-                                {% endfor %}
-                            </ul>
-                            <p>
-                                {{ platillo.descripcionPlatillo }}
-                            </p>
+                            </li>
                         {% endfor %}
+                      </ul>
                     </p>
 
                  <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                  Completar la orden
+                  Pagar la orden
                 </button>
                 </div>
-{#                <a href="?completed={{ orden.id }}">Completar la orden</a>#}
+{#                <a href="?completed={{ orden.id }}">Pagar la orden</a>#}
 
 
                 <!-- Modal -->
@@ -59,21 +60,19 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Cancelar</h4>
+                        <h4 class="modal-title" id="myModalLabel">Pagar</h4>
                       </div>
                       <div class="modal-body">
-                        ¿Esta seguro que desea cancelar la orden: <span class='order-id'>{{ orden.id }}</span>?
+                        ¿Esta seguro que desea pagar la orden: <span class='order-id'>{{ orden.id }}</span>?
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <a href="?completed={{ orden.id }}" type="button" class="btn btn-primary">Cancelar la orden</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <a href="?cancel={{ orden.id }}" type="button" class="btn btn-primary">Pagar la orden</a>
                       </div>
                     </div>
                   </div>
                 </div>
 
-
-            {% endif %}
         {% endfor %}
     </div>
 </body>

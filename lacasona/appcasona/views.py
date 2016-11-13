@@ -80,7 +80,21 @@ def cocina(request):
     else:
         ordenes = Orden.objects.all()
         return render(request, "appcasona/cocina.html", {'ordenes': ordenes})
-#=======
+
+#View de la caja
+def caja (request):
+    if request.GET.get('cancel'):
+        order_id = request.GET['cancel']
+        one_entry = Orden.objects.get(pk=order_id)
+        one_entry.status = 2
+        one_entry.save()
+
+        ordenes = Orden.objects.all()
+        return render(request, "appcasona/caja.html", {'ordenes': ordenes})
+    else:
+        ordenes = Orden.objects.all()
+        return render(request, "appcasona/caja.html", {'ordenes': ordenes})
+
 
 def platillo_detail(request, platillo_id):
     context = RequestContext(request)

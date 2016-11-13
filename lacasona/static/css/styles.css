@@ -65,6 +65,9 @@
 .gradient-2 {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
+.recuadro-caja {
+  border: 1px solid black;
+}
 .menu-img {
   width: 200px;
   height: 200px;
