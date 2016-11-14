@@ -7,6 +7,7 @@ from django.template import RequestContext
 from django.http import HttpResponse
 from .models import Inventario, Platillo, Orden
 from django.views.decorators.csrf import csrf_protect
+import datetime
 
 # Create your views here.
 def log_in(request):
@@ -116,11 +117,43 @@ def platillo_detail(request, platillo_id):
 
 
 
-def ordenarOtro(request, platillo_id):
+def ordenar(request, platillo_id):
+    #AQUI VA EL IMPORT DE RESTA INVENTARIO
     if request.method == "POST":
-        plato = get_object_or_404(Platillo, pk=platillo_id)
+        if "volver" in request.POST:
+            return redirect('menu')
         choices = request.POST.getlist("opciones")
-        print "lista de opciones"
-        print choices
+        plato = get_object_or_404(Platillo, pk=platillo_id)
+        mesa = request.POST["mesa"]
+        #Se obtiene el usuario actual
+        if request.user.is_authenticated():
+            username = request.user.username
+        #Se obtiene la fecha y hora actual
+        datime = datetime.datetime.now()
+        #Se busca una orden con los parametros establecidos
+        try:
+            order = Orden.objects.get(mesa=mesa, nombreDelMesero=username, status=0)
+        except Orden.DoesNotExist:
+            order = None
+        #Se crea la orden si no existe
+        if order == None:
+            order = Orden(nombreDelMesero=username,mesa=mesa,fecha=datime,status=0)
+            order.save()
+        order.platillos.add(plato)
 
+        ing=[]
+        nombrePlato=plato.nombreDelPlatillo
+        for i in choices:
+            invN= Inventario.objects.get(id=i)
+            ing.append(str(invN.nombreDelProducto))
+
+        # AQUI VA LO DE RESTA INVENTARIO
+        # NOMBRE DE LA LISTA = ing
+        # NOMBRE DEL PLATILLO = nombrePlato
+
+        if "botonOtro" in request.POST:
+            return redirect('menu')
+
+        elif "complete" in request.POST:
+            return redirect('caja')
     return redirect('menu')
