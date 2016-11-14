@@ -14,5 +14,6 @@ urlpatterns = [
                #url(r'^proveedor/', RedirectView.as_view(url="/admin/appcasona/proveedor/"), name='proveedor'),
                url(r'^(?P<platillo_id>[0-9]+)/descripcion/$', views.platillo_detail, name='descripcion'),
                url(r'^platillo/', RedirectView.as_view(url="/admin/appcasona/platillo/"), name='platillo'),
-               url(r'^orden/', RedirectView.as_view(url="/admin/appcasona/orden/"), name='orden')
+               url(r'^orden/', RedirectView.as_view(url="/admin/appcasona/orden/"), name='orden'),
+               url(r'^(?P<platillo_id>[0-9]+)/otro/$', views.ordenarOtro, name='other')
                ]

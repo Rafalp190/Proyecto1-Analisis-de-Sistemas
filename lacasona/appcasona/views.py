@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404, render_to_resp
 from django.template import RequestContext
 from django.http import HttpResponse
 from .models import Inventario, Platillo, Orden
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 def log_in(request):
@@ -62,6 +63,7 @@ def search(request):
 
 
 # Vista del menu
+@csrf_protect
 def menu(request):
     platillos = Platillo.objects.all()
     image_sources = Platillo.objects.filter()
@@ -97,13 +99,14 @@ def caja (request):
         return render(request, "appcasona/caja.html", {'ordenes': ordenes})
 
 
-
+@csrf_protect
 def platillo_detail(request, platillo_id):
     context = RequestContext(request)
     plato = get_object_or_404(Platillo, pk=platillo_id)
     ingredientes = plato.ingredientes.all()
 
-    context_dict = {'nombre': plato.nombreDelPlatillo,
+    context_dict = {'id': plato.platillo_id(),
+                    'nombre': plato.nombreDelPlatillo,
                     'descripcion': plato.descripcionPlatillo,
                     'precio': str(plato.precioPlatillo),
                     'imagen': plato.imagenPlatillo,
@@ -111,3 +114,13 @@ def platillo_detail(request, platillo_id):
 
     return render_to_response("appcasona/descripcion.html",context_dict, context)
 
+
+
+def ordenarOtro(request, platillo_id):
+    if request.method == "POST":
+        plato = get_object_or_404(Platillo, pk=platillo_id)
+        choices = request.POST.getlist("opciones")
+        print "lista de opciones"
+        print choices
+
+    return redirect('menu')
