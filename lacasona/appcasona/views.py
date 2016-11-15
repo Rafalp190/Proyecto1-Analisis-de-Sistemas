@@ -9,6 +9,8 @@ from .models import Inventario, Platillo, Orden
 from django.views.decorators.csrf import csrf_protect
 import datetime
 
+from restaInventario import resta
+
 # Create your views here.
 def log_in(request):
     #Maneja los errores
@@ -150,6 +152,8 @@ def ordenar(request, platillo_id):
         # AQUI VA LO DE RESTA INVENTARIO
         # NOMBRE DE LA LISTA = ing
         # NOMBRE DEL PLATILLO = nombrePlato
+		
+	resta(ing,nombrePlato)
 
         if "botonOtro" in request.POST:
             return redirect('menu')
