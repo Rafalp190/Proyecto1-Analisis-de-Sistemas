@@ -165,3 +165,18 @@ def ordenar(request, platillo_id):
 def carrito (request):
     inventario = Inventario.objects.all()
     return render(request, "appcasona/carrito.html", {'inventario': inventario})
+
+def pagos(request):
+    if request.GET.get('cancel'):
+        order_id = request.GET['cancel']
+        orden = Orden.objects.get(pk=order_id)
+        return render(request, "appcasona/pagos.html", {'orden': orden,})
+
+    if request.GET.get('bill'):
+        order_id = request.GET['bill']
+        orden = Orden.objects.get(pk=order_id)
+        orden.status = 2
+        orden.save()
+
+        ordenes = Orden.objects.all()
+        return redirect('caja')

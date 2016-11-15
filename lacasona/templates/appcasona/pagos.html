@@ -1,21 +1,11 @@
 {% extends "appcasona/base_template.html" %}
 {% block content %}
-<h1 class="text-center">Caja</h1>
+<h1 class="text-center">Pagos</h1>
     <div class="row">
-        {% for orden in ordenes %}
-            {% if orden.status != 2 %}
+
+
                 <div class="col-md-4 text-left recuadro-caja">
                     <p>ID de la orden: {{ orden.id }}</p>
-                    <p>
-                      El estado de la orden es:
-                      {% if orden.status == 0 %}
-                        ACTIVO
-                      {% elif orden.status == 1 %}
-                        COMPLETADO
-                      {% elif orden.status == 2 %}
-                        PAGADO
-                      {% endif %}
-                    </p>
 
                     <p>Mesero encargado: {{ orden.nombreDelMesero }}</p>
                     <p>Fecha: {{ orden.fecha }}</p>
@@ -31,9 +21,15 @@
                       </ul>
                     </p>
 
+                    <p>Total:</p>
+                    <p>
+                       <h1>Q.{{ orden.total }}</h1>
+                    </p>
+
+
                  <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal{{ orden.id }}">
-                  Cobrar la orden
+                  Pagar la orden
                 </button>
                 </div>
 {#                <a href="?completed={{ orden.id }}">Pagar la orden</a>#}
@@ -48,16 +44,15 @@
                         <h4 class="modal-title" id="myModalLabel">Pagar</h4>
                       </div>
                       <div class="modal-body">
-                        ¿Esta seguro que desea cobrar la orden: <span class='order-id'>{{ orden.id }}</span>?
+                        ¿Esta seguro que desea pagar la orden: <span class='order-id'>{{ orden.id }}</span>?
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <a href="{%url 'pagos'%}?cancel={{ orden.id }}" type="button" class="btn btn-primary">Cobrar la orden</a>
+                        <a href="?bill={{ orden.id }}" type="button" class="btn btn-primary">Pagar la orden</a>
                       </div>
                     </div>
                   </div>
                 </div>
-            {% endif %}
-        {% endfor %}
+
     </div>
 {% endblock %}

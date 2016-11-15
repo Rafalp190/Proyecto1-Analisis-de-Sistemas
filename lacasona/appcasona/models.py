@@ -89,3 +89,10 @@ class Orden(models.Model):
 
     def __int__(self):
         return self.id
+
+    def total(self):
+        total = 0.00
+        for p in self.platillos.all():
+            total = total + p.precioPlatillo
+
+        return total
