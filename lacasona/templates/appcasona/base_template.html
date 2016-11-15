@@ -40,16 +40,13 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-fw fa-file-o"></i> Caja</a>
+                <a href="{% url 'caja' %}"><i class="fa fa-fw fa-file-o"></i> Caja</a>
             </li>
             <li>
-                <a href="{% url 'menu' %}"><i class="fa fa-fw fa-cog"></i>Menu</a>
+                <a href="{% url 'menu' %}"><i class="fa fa-fw fa-file"></i>Menu</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-fw fa-bank"></i>Carrito</a>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-fw fa-dropbox"></i>Personal</a>
             </li>
             <li class="logout">
                 <a href="#" class="logout-menu" data-toggle="modal" data-target="#myModalLogout"><i class="fa fa-fw fa-user logout-menu"></i> Logout</a>{% csrf_token %}
