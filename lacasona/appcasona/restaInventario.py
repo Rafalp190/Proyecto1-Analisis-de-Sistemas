@@ -1,11 +1,10 @@
 import itertools
 from .models import Inventario, Platillo, Orden, Cantidad
 
-def resta(lista, nombre)
+def resta(lista, nombre):
 	#donde dice "carne", se debe poner el nombre del platillo que rafa manda.
 	ingredientes = Platillo.objects.get(nombreDelPlatillo = nombre).ingredientes.all()
-	print ingredientes
-
+	
 
 	x=len(ingredientes)-1
 	y=len(lista)-1
@@ -18,10 +17,40 @@ def resta(lista, nombre)
 					y=y-1
 			y=len(lista)-1
 			x=x-1
-	print ingredientes
+	
+	
+	z=len(ingredientes)-1
+	while z>=0:
+		nombreIngrediente= ingredientes[z]    #nombre del ingrediente a buscar
+		idInventario= Inventario.objects.get(nombreDelProducto=nombreIngrediente).id #id del ingrediente en la base de datos 
+		idPlatillo= Platillo.objects.get(nombreDelPlatillo=nombre).id #id del platillo en la base de datos
+		porcion = Cantidad.objects.get(inventario_id = idInventario, platillo_id = idPlatillo) #cantidad de ese ingrediente en el platillo
+		porcionARestar= porcion.cantidad
+		cantidadInventario = Inventario.objects.get(nombreDelProducto=nombreIngrediente).cantidadDeProducto #cantidad de ese producto que hay en inventario
+		nuevaCantidad = int(cantidadInventario) - int(porcionARestar) #va a ser la nueva cantidad del Producto en inventario
+		Inventario.objects.filter(nombreDelProducto=nombreIngrediente).update(cantidadDeProducto=nuevaCantidad) #Actualiza la cantidad del producto en inventario 
+		z=z-1
+		
 
 
 
+		
+		
+#porcion = Cantidad.objects.get(inventario_id=idInventario,platillo_id=idPlatillo)
+#porcion.cantidad
+
+		
+#Actualizar la cantidad que hay en la base de datos
+#Inventario.objects.filter(nombreDelProducto=nombreIngrediente).update(cantidadDeProducto=resta) 
+
+#Me da la cantidad que hay en la base de datos 
+#Inventario.objects.get(nombreDelProducto=nombreIngrediente).cantidadDeProducto
+
+#La id del ingrediente 
+#idInventario= Inventario.objects.get(nombreDelProducto=nombreIngrediente).id
+
+#La id del platillo
+#idPlatillo= Platillo.objects.get(nombreDelPlatillo=nombre).id
 
 
 #a mi me pasan el nombre del platillo, y ingredientes que no quiere del mismo
