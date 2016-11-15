@@ -3,6 +3,7 @@
 <h1 class="text-center">Caja</h1>
     <div class="row">
         {% for orden in ordenes %}
+            {% if orden.status != 2 %}
                 <div class="col-md-4 text-left recuadro-caja">
                     <p>ID de la orden: {{ orden.id }}</p>
                     <p>
@@ -56,7 +57,7 @@
                     </div>
                   </div>
                 </div>
-
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}
