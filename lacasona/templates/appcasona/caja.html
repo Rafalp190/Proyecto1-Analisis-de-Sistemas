@@ -1,21 +1,5 @@
-<!DOCTYPE html>
- {% load staticfiles %}
- {% csrf_token %}
-
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Title</title>
-
-    <link rel="stylesheet" href="{%static 'css/bootstrap.css'%}">
-    <link rel="stylesheet" href="{%static 'css/index2.css'%}">
-    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
-
-</head>
-<body>
+{% extends "appcasona/base_template.html" %}
+{% block content %}
 <h1 class="text-center">Caja</h1>
     <div class="row">
         {% for orden in ordenes %}
@@ -75,10 +59,4 @@
 
         {% endfor %}
     </div>
-</body>
-
-<script src="{%static 'js/jquery-2.2.4.min.js'%}"></script>
-<script src="{%static 'js/bootstrap.min.js'%}"></script>
-<script src="{%static 'js/index2.js'%}"></script>
-<script src="{%static 'js/popup-menu.js'%}"></script>
-</html>
+{% endblock %}
