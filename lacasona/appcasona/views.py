@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from .models import Inventario, Platillo, Orden
 from django.views.decorators.csrf import csrf_protect
 import datetime
-
+from django.http import Http404
 from restaInventario import resta
 
 # Create your views here.
@@ -172,7 +172,7 @@ def pagos(request):
         orden = Orden.objects.get(pk=order_id)
         return render(request, "appcasona/pagos.html", {'orden': orden,})
 
-    if request.GET.get('bill'):
+    elif request.GET.get('bill'):
         order_id = request.GET['bill']
         orden = Orden.objects.get(pk=order_id)
         orden.status = 2
@@ -180,3 +180,6 @@ def pagos(request):
 
         ordenes = Orden.objects.all()
         return redirect('caja')
+
+    else:
+        return HttpResponse(status=404)
