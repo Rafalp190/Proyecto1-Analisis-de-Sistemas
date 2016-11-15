@@ -1,0 +1,21 @@
+{% extends "appcasona/base_template.html" %}
+{% block content %}
+    <div class="row text-center">
+        <h1>
+            Carrito
+        </h1>
+    </div>
+
+    <div>
+        <p>
+            Es necesario comprar los siguientes ingredientes:
+        </p>
+        <ul>
+            {% for cosa in inventario %}
+                {% if cosa.cantidadDeProducto <= 25 %}
+                    <li>{{ cosa }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

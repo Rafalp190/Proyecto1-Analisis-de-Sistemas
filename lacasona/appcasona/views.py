@@ -152,7 +152,7 @@ def ordenar(request, platillo_id):
         # AQUI VA LO DE RESTA INVENTARIO
         # NOMBRE DE LA LISTA = ing
         # NOMBRE DEL PLATILLO = nombrePlato
-		
+
 	resta(ing,nombrePlato)
 
         if "botonOtro" in request.POST:
@@ -161,3 +161,7 @@ def ordenar(request, platillo_id):
         elif "complete" in request.POST:
             return redirect('caja')
     return redirect('menu')
+
+def carrito (request):
+    inventario = Inventario.objects.all()
+    return render(request, "appcasona/carrito.html", {'inventario': inventario})

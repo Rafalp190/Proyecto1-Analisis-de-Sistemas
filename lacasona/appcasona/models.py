@@ -42,7 +42,6 @@ class Inventario(models.Model):
         return self.nombreDelProducto
 
 
-
 #
 class Platillo(models.Model):
     nombreDelPlatillo = models.CharField(max_length=255, db_column='NombreDelPlatillo', verbose_name='Nombre')
